@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'slack-time-zones',
+    modulePrefix: 'stz',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -19,6 +19,14 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['simple-auth'] = {
+    crossOriginWhitelist: [ 'https://slack.com/api/oauth.access']
+  }
+
+  ENV['simple-auth-oauth2'] = {
+    serverTokenEndpoint: 'https://slack.com/api/oauth.access'
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -28,6 +36,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
+    ENV['simple-auth'].store = 'simple-auth-session-store:ephemeral';
+
     // Testem prefers this...
     ENV.baseURL = '/';
     ENV.locationType = 'none';

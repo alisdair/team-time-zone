@@ -1,5 +1,5 @@
 {
-  "name": "slack-time-zones",
+  "name": "stz",
   "dependencies": {
     "ember": "1.12.0",
     "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.3",
@@ -11,6 +11,7 @@
     "ember-resolver": "~0.1.15",
     "jquery": "^1.11.1",
     "loader.js": "ember-cli/loader.js#3.2.0",
-    "qunit": "~1.17.1"
+    "qunit": "~1.17.1",
+    "ember-simple-auth": "0.8.0-beta.2"
   }
 }
