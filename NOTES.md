@@ -41,3 +41,14 @@ How do we handle .env management for the server side secret(s)?
 ---
 
 Maybe we can do some API emulation to build out the UI
+
+---
+
+Pretty good state with mirage now. I can build out a custom Ember Data adapter for the users endpoint of the Slack API, with tests, then work from there.
+
+Not sure how to take a list of users and group them usefully by timezone. Maybe a component structure:
+
+* Timezone list: takes users, renders a list of zero or more columns
+* Timezone column: includes zero or more timezone groups
+* Timezone group: users at the same time, with one or more timezones (different labels/names possible)
+* User: displays the avatar, name, username
