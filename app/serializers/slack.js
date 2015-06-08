@@ -15,5 +15,9 @@ export default DS.RESTSerializer.extend({
     }
 
     return this._super.apply(this, arguments);
+  },
+
+  keyForAttribute: function(attr, method) {
+    return Ember.String.underscore(attr);
   }
 });
