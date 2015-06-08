@@ -13,7 +13,7 @@ function invalidTokenResponse(token) {
 export default function() {
   this.get('/slack/users.list', function(db, request) {
     let response = invalidTokenResponse(request.params.token);
-    if (!Ember.isNone(response)) { return response; }
+    // if (!Ember.isNone(response)) { return response; }
 
     return { ok: true, members: db.users };
   });
