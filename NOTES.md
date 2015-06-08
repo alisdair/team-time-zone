@@ -70,3 +70,9 @@ Unfortunately the users endpoint needs a custom serializer, for two reasons:
 2. Each user has an embedded `profile` hash that needs to be flattened out. Also we don't care about all of the information in there, so we might just want to pull out some of it.
 
 This is no big deal.
+
+---
+
+Serializer basically done! Except for the profile hash for users.
+
+I think the next task is to sort out the token mugning in an authorizer. Either that or building out the real UI with our working mirage test data.
