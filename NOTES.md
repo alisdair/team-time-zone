@@ -52,3 +52,9 @@ Not sure how to take a list of users and group them usefully by timezone. Maybe 
 * Timezone column: includes zero or more timezone groups
 * Timezone group: users at the same time, with one or more timezones (different labels/names possible)
 * User: displays the avatar, name, username
+
+---
+
+Need to create our own ember simple auth authorizer to modify the data object of the jqXhr, adding the token.
+
+Writing integration tests for the adapter isn't going to work.
