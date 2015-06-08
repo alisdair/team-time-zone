@@ -58,3 +58,15 @@ Not sure how to take a list of users and group them usefully by timezone. Maybe 
 Need to create our own ember simple auth authorizer to modify the data object of the jqXhr, adding the token.
 
 Writing integration tests for the adapter isn't going to work.
+
+---
+
+The RESTSerializer should work lmost fine for most models, I think. Maybe a subclass to remove the `ok` root attribute would be enough.
+
+Unfortunately the users endpoint needs a custom serializer, for two reasons:
+
+1. The list endpoint has a root key of `members`, so extractArray won't work until that's munged.
+
+2. Each user has an embedded `profile` hash that needs to be flattened out. Also we don't care about all of the information in there, so we might just want to pull out some of it.
+
+This is no big deal.
