@@ -6,6 +6,7 @@ let get = Ember.get;
 export default DS.Adapter.extend({
   host: null,
   namespace: 'slack',
+  defaultSerializer: 'slack',
 
   find(store, type, id) {
     let url = this.buildURL(type.modelName, '.info');
