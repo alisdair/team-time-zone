@@ -1,5 +1,26 @@
 <h1>{{model.length}} Users</h1>
 
-{{#each model as |user|}}
-  <p>{{user.name}}: {{user.realName}}</p>
-{{/each}}
+<table>
+  <thead>
+    <tr>
+      <th>Avatar</th>
+      <th>User</th>
+      <th>Real name</th>
+      <th>Timezone</th>
+      <th>Timezone Label</th>
+      <th>Timezone Offset</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |user|}}
+    <tr>
+      <td><img src={{user.image_72}}></td>
+      <td>{{user.username}}</td>
+      <td>{{user.realName}}</td>
+      <td>{{user.tz}}</td>
+      <td>{{user.tzLabel}}</td>
+      <td>{{user.tzOffset}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
