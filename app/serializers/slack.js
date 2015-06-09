@@ -9,7 +9,7 @@ export default DS.RESTSerializer.extend({
     return payload;
   },
 
-  modelNameFromPayloadKey: function(key) {
+  modelNameFromPayloadKey(key) {
     if (key === 'members') {
       return 'user';
     }
@@ -17,7 +17,28 @@ export default DS.RESTSerializer.extend({
     return this._super.apply(this, arguments);
   },
 
-  keyForAttribute: function(attr, method) {
+  keyForAttribute(attr, method) {
     return Ember.String.underscore(attr);
+  },
+
+  _normalizeUserProfile(hash) {
+    if (typeof hash.profile !== 'object') {
+      return;
+    }
+
+    // Merge profile into attribute hash
+    for (var key in hash.profile) {
+      hash[key] = hash.profile[key];
+    }
+
+    delete hash.profile;
+  },
+
+  normalize(typeClass, hash, prop) {
+    if (typeClass.modelName === 'user') {
+      this._normalizeUserProfile(hash);
+    }
+
+    return this._super.apply(this, arguments);
   }
 });
