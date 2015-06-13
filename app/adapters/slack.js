@@ -45,8 +45,6 @@ export default DS.Adapter.extend({
   },
 
   ajax(url, type, data) {
-    let adapter = this;
-
     return new Ember.RSVP.Promise(function(resolve, reject) {
       let hash = {
         url: url,

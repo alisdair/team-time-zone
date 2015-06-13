@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend({
@@ -17,7 +18,7 @@ export default DS.RESTSerializer.extend({
     return this._super.apply(this, arguments);
   },
 
-  keyForAttribute(attr, method) {
+  keyForAttribute(attr) {
     return Ember.String.underscore(attr);
   },
 
@@ -34,7 +35,7 @@ export default DS.RESTSerializer.extend({
     delete hash.profile;
   },
 
-  normalize(typeClass, hash, prop) {
+  normalize(typeClass, hash) {
     if (typeClass.modelName === 'user') {
       this._normalizeUserProfile(hash);
     }
