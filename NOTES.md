@@ -76,3 +76,11 @@ This is no big deal.
 Serializer basically done! Except for the profile hash for users.
 
 I think the next task is to sort out the token mugning in an authorizer. Either that or building out the real UI with our working mirage test data.
+
+---
+
+Look into making [torii](https://github.com/Vestorly/torii) work with Slack. Notes:
+
+* Appears to not set a STATE parameter; easiest way to check this is to try it
+* Only gets us as far as the authentication code, which we still need to send to our server to get the acccess token
+* Works with ember-simple-auth, but I'm not sure how
