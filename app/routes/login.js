@@ -4,7 +4,7 @@ import UnauthenticatedRouteMixin from 'simple-auth/mixins/unauthenticated-route-
 export default Ember.Route.extend(UnauthenticatedRouteMixin, {
   actions: {
     login() {
-      window.location.href = 'http://www.google.com/';
+      this.get('session').authenticate('authenticator:slack');
     }
   }
 });

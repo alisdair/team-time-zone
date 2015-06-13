@@ -23,18 +23,14 @@ module.exports = function(environment) {
     'default-src': "'none'",
     'script-src': "'self'",
     'font-src': "'self'",
-    'connect-src': "'self' https://slack.com",
-    'img-src': "'self'",
+    'connect-src': "'self'",
+    'img-src': "'self' *",
     'style-src': "'self' 'unsafe-inline'",
     'media-src': "'self'"
   };
 
   ENV['simple-auth'] = {
-    crossOriginWhitelist: [ 'https://slack.com/api/oauth.access']
-  };
-
-  ENV['simple-auth-oauth2'] = {
-    serverTokenEndpoint: 'https://slack.com/api/oauth.access'
+    authorizer: 'authorizer:slack'
   };
 
   if (environment === 'development') {
