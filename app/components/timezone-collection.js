@@ -27,6 +27,13 @@ function nextTimezone(start) {
   return start + secondsInHour;
 }
 
+function usersInTimezone(users,tz) {
+  return users.filter(function(user) {
+    let offset = user.get('tzOffset');
+    return offset >= tz && offset < nextTimezone(tz);
+  });
+}
+
 export default Ember.Component.extend({
   classNames: ['timezone-container'],
 
@@ -36,19 +43,15 @@ export default Ember.Component.extend({
   latest: Ember.computed.max('offsets'),
 
   columns: Ember.computed('users.@each.tzOffset', function() {
-    let users = this.get('model');
+    let users = this.get('users');
     let start = calculateTimezoneStart(this.get('earliest'));
     let stop = calculateTimezoneStop(this.get('latest'));
     let columns = Ember.A();
 
     for (let tz = start; tz < stop; tz = nextTimezone(tz)) {
-      let matches = users.filter(function(user) {
-        let offset = user.get('tzOffset');
-        return offset >= tz && offset < nextTimezone(tz);
-      });
       columns.push(TimezoneColumn.create({
         timezoneStart: tz,
-        users: matches
+        users: usersInTimezone(users, tz)
       }));
     }
 
