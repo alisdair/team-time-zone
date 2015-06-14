@@ -84,3 +84,31 @@ Look into making [torii](https://github.com/Vestorly/torii) work with Slack. Not
 * Appears to not set a STATE parameter; easiest way to check this is to try it
 * Only gets us as far as the authentication code, which we still need to send to our server to get the acccess token
 * Works with ember-simple-auth, but I'm not sure how
+
+---
+
+Okay, so we have:
+
+* A shit but working authorizer
+* A stubbed out authenticator
+* Working mirage test stubs
+
+On all this authorisation junk, we need to:
+
+* Integrate and customise torii to hit Slack's real oauth2 endpoint
+* Build a real authenticator (more likely just use the oauth2 one)
+* Test everything
+
+Other things that need doing:
+
+* Extend the ember-lightning app to act as an oauth2 authorizer
+* Fix torii to not use fixed STATE
+* Import the UI from JSBin
+* Styles for everything
+* More testing again forever
+* Pick a good domain name
+
+Goals:
+
+* Write up some things you've learned
+* Maybe come up with a talk or two
