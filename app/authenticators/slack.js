@@ -6,7 +6,7 @@ export default Base.extend({
     return Ember.RSVP.resolve(data);
   },
 
-  authenticate: function(options) {
+  authenticate: function() {
     return Ember.RSVP.resolve({ access_token: 'test' });
   }
 });

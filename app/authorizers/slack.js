@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import Base from 'simple-auth/authorizers/base';
 
 export default Base.extend({
@@ -6,8 +7,10 @@ export default Base.extend({
 
     if (this.get('session.isAuthenticated') && !Ember.isEmpty(accessToken)) {
       let url = requestOptions.url;
-      let concat = (url.indexOf('?') === -1) ? '?' : '&'
-      url += `${concat}token=${accessToken}`;
+
+      // FIXME: extract this to a unit-testable util function
+      let sep = (url.indexOf('?') === -1) ? '?' : '&';
+      url += `${sep}token=${accessToken}`;
       requestOptions.url = url;
     }
   }
