@@ -1,0 +1,28 @@
+body
+  background: white
+
+h2
+  font-size: 1.1em
+  text-align: center
+
+.timezone-container
+  display: -webkit-flex
+  display: flex
+  -webkit-flex-flow: row nowrap
+  flex-flow: row nowrap
+  -webkit-justify-content: space-between
+  justify-content: space-between
+  margin: 10px
+
+.timezone-column
+  -webkit-flex: 0 0 auto
+  flex: 0 0 auto
+  background: #eee
+  margin: 0 10px
+  &.timezone-column--empty
+    margin: 0
+
+.timezone-column__item
+  min-height: 30px
+  min-width: 100px
+  margin: 10px
