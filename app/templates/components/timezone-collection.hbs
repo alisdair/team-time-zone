@@ -1,0 +1,17 @@
+{{#each columns as |column|}}
+  <!-- FIXME: column should be a component -->
+  <div class="timezone-column {{if column.empty 'timezone-column--empty'}}">
+    <!-- FIXME: users should be grouped by timezone (asc) -->
+    <!-- FIXME: timezone should be displayed -->
+    <!-- FIXME: current time should be displayed -->
+    <!-- FIXME: item should be a component -->
+    {{#each column.users as |user|}}
+      <div class="timezone-column__item">
+        <div><img src={{user.image_72}}></div>
+        <div>{{user.realName}}</div>
+        <div>{{user.tz}}</div>
+        <div>{{user.tzOffset}}</div>
+      </div>
+    {{/each}}
+  </div>
+{{/each}}
