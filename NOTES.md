@@ -112,3 +112,23 @@ Goals:
 
 * Write up some things you've learned
 * Maybe come up with a talk or two
+
+---
+
+Started on the UI. Build some crappy components.
+
+Next steps on components:
+
+* Group users within a column into timezones, ordered ascending
+* Extract a timezone-group component, orders users by name, displays TZ and current time too
+* Extract a timezone-user component, which does a less shitty job of rendering the user
+
+UI thought:
+
+* Top level search filter for users? Don't want to affect columns so not sure how to make that work
+
+Other thought:
+
+* These randomly generated users are not great. Too much variation makes it hard to follow what's happening. Should have fixed test/demo data instead.
+
+* Would be cool for the real app to be able to display fake data too, until people are logged in.
