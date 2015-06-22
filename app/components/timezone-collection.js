@@ -15,12 +15,7 @@ function calculateTimezoneStart(offset) {
 }
 
 function calculateTimezoneStop(offset) {
-  // Finds the end of the hour window for the timezone containing offset.
-  // 7200 -> 7200
-  // 9000 -> 10800
-  // -7200 -> -7200
-  // -9000 -> -7200
-  return Math.ceil(offset / secondsInHour) * secondsInHour;
+  return calculateTimezoneStart(offset) + secondsInHour;
 }
 
 function nextTimezone(start) {
