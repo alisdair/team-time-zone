@@ -2,7 +2,7 @@ import { moduleFor, test } from 'ember-qunit';
 import randomOracle from 'stz/utils/random-oracle';
 
 moduleFor('util:random-oracle', 'Unit | Util | random-oracle', {
-  subject: randomOracle,
+  subject: randomOracle
 });
 
 const fruits = ['apple', 'banana', 'mango'];

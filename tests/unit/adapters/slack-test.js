@@ -126,7 +126,9 @@ test('ajax with successful response but { ok: false }', function(assert) {
   let body = { ok: false, error: 'whatever' };
 
   let originalAjax = Ember.$.ajax;
-  Ember.$.ajax = function(hash) { hash.success(body); };
+  Ember.$.ajax = function(hash) {
+    hash.success(body);
+  };
 
   try {
     Ember.run(function() {
@@ -154,7 +156,9 @@ test('ajax with error response', function(assert) {
   let jqXHR = { then: x => x, message: 'whatever' };
 
   let originalAjax = Ember.$.ajax;
-  Ember.$.ajax = function(hash) { hash.error(jqXHR); };
+  Ember.$.ajax = function(hash) {
+    hash.error(jqXHR);
+  };
 
   try {
     Ember.run(function() {

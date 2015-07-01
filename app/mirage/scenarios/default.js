@@ -1,5 +1,4 @@
-import timezones from 'stz/data/slack-timezones';
-
+// jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 export default function(server) {
   [
     {
@@ -148,3 +147,4 @@ export default function(server) {
     }
   ].forEach(attrs => server.create('user', attrs));
 }
+// jscs: enable

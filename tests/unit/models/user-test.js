@@ -6,7 +6,7 @@ moduleForModel('user', 'Unit | Model | user', {
 });
 
 test('it exists', function(assert) {
-  var model = this.subject();
+  let model = this.subject();
   // var store = this.store();
   assert.ok(!!model);
 });

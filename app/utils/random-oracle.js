@@ -2,8 +2,8 @@
 // input value always returns the same element.
 
 export default function(xs) {
-  var memo = {};
-  return function (i) {
+  let memo = {};
+  return function(i) {
     if (!(i in memo)) {
       memo[i] = Math.floor(Math.random() * xs.length);
     }

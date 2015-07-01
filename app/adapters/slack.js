@@ -27,14 +27,18 @@ export default DS.Adapter.extend({
     let namespace = get(this, 'namespace');
     let host = get(this, 'host');
 
-    if (host) { url.push(host); }
-    if (namespace) { url.push(namespace); }
+    if (host) {
+      url.push(host);
+    }
+    if (namespace) {
+      url.push(namespace);
+    }
 
     url.push(this.prefixForType(modelName) + suffix);
 
     url = url.join('/');
     if (!host && url && url.charAt(0) !== '/') {
-      url = '/' + url;
+      url = `/${url}`;
     }
 
     return url;
@@ -47,9 +51,7 @@ export default DS.Adapter.extend({
   ajax(url, type, data) {
     return new Ember.RSVP.Promise(function(resolve, reject) {
       let hash = {
-        url: url,
-        type: type,
-        data: data,
+        url, type, data,
         dataType: 'json',
         context: this
       };
@@ -68,6 +70,6 @@ export default DS.Adapter.extend({
       };
 
       Ember.$.ajax(hash);
-    }, 'DS: SlackAdapter#ajax ' + type + ' to ' + url);
+    }, `DS: SlackAdapter#ajax ${type} to ${url}`);
   }
 });

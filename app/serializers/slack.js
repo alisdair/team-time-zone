@@ -28,7 +28,7 @@ export default DS.RESTSerializer.extend({
     }
 
     // Merge profile into attribute hash
-    for (var key in hash.profile) {
+    for (let key in hash.profile) {
       hash[key] = hash.profile[key];
     }
 

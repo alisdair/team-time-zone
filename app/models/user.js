@@ -13,5 +13,5 @@ export default DS.Model.extend({
   tzLabel: DS.attr(),
   tzOffset: DS.attr(),
 
-  image_72: DS.attr(),
+  image_72: DS.attr() // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 });

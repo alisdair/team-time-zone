@@ -22,7 +22,7 @@ function nextTimezone(start) {
   return start + secondsInHour;
 }
 
-function usersInTimezone(users,tz) {
+function usersInTimezone(users, tz) {
   return users.filter(function(user) {
     let offset = user.get('tzOffset');
     return offset >= tz && offset < nextTimezone(tz);
