@@ -132,3 +132,9 @@ Other thought:
 * These randomly generated users are not great. Too much variation makes it hard to follow what's happening. Should have fixed test/demo data instead.
 
 * Would be cool for the real app to be able to display fake data too, until people are logged in.
+
+---
+
+Dealt with the randomly generated users with a Mirage scenario. Would be really cool to use the same data to build fake users for the real app when logged out, if at all possible.
+
+All the above UI work is still pending and probably the most fun to do next. Then it's really just finishing off the authentication and deployment infrastructure.
