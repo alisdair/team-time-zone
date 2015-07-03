@@ -50,9 +50,9 @@ export default function(server) {
     {
       name: 'marcus',
       real_name: 'Marcus J',
-      tz: 'America/New_York',
-      tz_label: 'Eastern Time (US and Canada)',
-      tz_offset: -18000,
+      tz: 'America/Los_Angeles',
+      tz_label: 'Pacific Time (US and Canada)',
+      tz_offset: -28800,
       profile: {
         image_72: avatar(2, 72),
         first_name: null,
@@ -63,9 +63,9 @@ export default function(server) {
     {
       name: 'dc',
       real_name: 'David Campbell',
-      tz: 'America/Jamaica',
-      tz_label: 'Kingston, George Town',
-      tz_offset: -18000,
+      tz: 'America/Halifax',
+      tz_label: 'Atlantic Time (Canada)',
+      tz_offset: -14400,
       profile: {
         image_72: avatar(3, 72),
         first_name: 'David',
@@ -163,7 +163,21 @@ export default function(server) {
         last_name: 'Schumann',
         real_name: 'Georg Schumann'
       }
+    },
+    {
+      name: 'anna',
+      real_name: 'Anna Conroy',
+      tz: 'America/St_Johns',
+      tz_label: 'Newfoundland and Labrador',
+      tz_offset: -12600,
+      profile: {
+        image_72: avatar(12, 72),
+        first_name: 'Anna',
+        last_name: 'Conroy',
+        real_name: 'Anna Conroy'
+      }
     }
+
   ].forEach(attrs => server.create('user', attrs));
 }
 // jscs: enable
