@@ -2,12 +2,12 @@ import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend({
-  normalizePayload(payload) {
-    this._super.apply(this, arguments);
+  isNewSerializerAPI: true,
 
+  normalizeResponse(store, primaryModel, payload) {
     delete payload.ok;
 
-    return payload;
+    return this._super.apply(this, arguments);
   },
 
   modelNameFromPayloadKey(key) {
