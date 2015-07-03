@@ -2,17 +2,17 @@ import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  name: DS.attr(),
+  name: DS.attr('string'),
 
-  deleted: DS.attr(),
+  deleted: DS.attr('boolean'),
 
-  firstName: DS.attr(),
-  lastName: DS.attr(),
-  realName: DS.attr(),
+  firstName: DS.attr('string'),
+  lastName: DS.attr('string'),
+  realName: DS.attr('string'),
 
-  tz: DS.attr(),
-  tzLabel: DS.attr(),
-  tzOffset: DS.attr(),
+  tz: DS.attr('string'),
+  tzLabel: DS.attr('string'),
+  tzOffset: DS.attr('number'),
 
   timezone: Ember.computed('tzOffset', function() {
     let tz = this.get('tzOffset');
@@ -25,5 +25,11 @@ export default DS.Model.extend({
     return `${sign}${pad(hours)}:${pad(minutes)}`;
   }),
 
-  image_72: DS.attr() // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+  // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+  image_24: DS.attr('string'),
+  image_32: DS.attr('string'),
+  image_48: DS.attr('string'),
+  image_72: DS.attr('string'),
+  image_192: DS.attr('string')
+  // jscs:enable
 });
