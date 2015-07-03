@@ -4,9 +4,9 @@
 <!-- FIXME: item should be a component -->
 {{#each column.users as |user|}}
   <div class="timezone-column__item">
-    <div><img src={{user.image_72}}></div>
+    <div><img src={{user.image_72}} width="36" height="36"></div>
     <div>{{user.realName}}</div>
     <div>{{user.tz}}</div>
-    <div>{{user.tzOffset}}</div>
+    <div>{{user.timezone}}</div>
   </div>
 {{/each}}
