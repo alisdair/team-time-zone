@@ -25,11 +25,9 @@ export default DS.Model.extend({
     return `${sign}${pad(hours)}:${pad(minutes)}`;
   }),
 
-  // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
-  image_24: DS.attr('string'),
-  image_32: DS.attr('string'),
-  image_48: DS.attr('string'),
-  image_72: DS.attr('string'),
-  image_192: DS.attr('string')
-  // jscs:enable
+  image24: DS.attr('string'),
+  image32: DS.attr('string'),
+  image48: DS.attr('string'),
+  image72: DS.attr('string'),
+  image192: DS.attr('string')
 });

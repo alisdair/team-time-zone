@@ -29,7 +29,11 @@ export default DS.RESTSerializer.extend({
 
     // Merge profile into attribute hash
     for (let key in hash.profile) {
-      hash[key] = hash.profile[key];
+      let transformedKey = key;
+      if (/^image_(\d+)$/.test(key)) {
+        transformedKey = key.replace(/_/, '');
+      }
+      hash[transformedKey] = hash.profile[key];
     }
 
     delete hash.profile;
