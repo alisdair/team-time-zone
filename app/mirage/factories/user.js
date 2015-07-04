@@ -1,6 +1,6 @@
 import Mirage from 'ember-cli-mirage';
-import timezones from 'stz/data/slack-timezones';
-import oracle from 'stz/utils/random-oracle';
+import timezones from 'ttz/data/slack-timezones';
+import oracle from 'ttz/utils/random-oracle';
 
 let timezone = oracle(timezones);
 

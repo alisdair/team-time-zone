@@ -1,7 +1,7 @@
 {
-  "name": "stz",
+  "name": "ttz",
   "version": "0.0.0",
-  "description": "Small description for slack-time-zones goes here",
+  "description": "time zones for your Slack team",
   "private": true,
   "directories": {
     "doc": "doc",

@@ -1,9 +1,8 @@
-# Slack Time Zones
+# Team Time Zone
 
-[![Build Status](https://travis-ci.org/alisdair/slack-time-zones.svg)](https://travis-ci.org/alisdair/slack-time-zones)
+[![Build Status](https://travis-ci.org/alisdair/team-time-zone.svg)](https://travis-ci.org/alisdair/team-time-zone)
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This app helps you work out what time it is for everyone on your team. Just sign in with Slack to sync up your team, and see what time it is for all your coworkers.
 
 ## Prerequisites
 
@@ -43,7 +42,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+More to come.
 
 ## Further Reading / Useful Links
 

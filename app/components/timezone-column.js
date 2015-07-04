@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import TimezoneGroup from 'stz/models/timezone-group';
+import TimezoneGroup from 'ttz/models/timezone-group';
 
 export default Ember.Component.extend({
   classNames: ['timezone-column'],

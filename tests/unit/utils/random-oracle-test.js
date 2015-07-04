@@ -1,5 +1,5 @@
 import { moduleFor, test } from 'ember-qunit';
-import randomOracle from 'stz/utils/random-oracle';
+import randomOracle from 'ttz/utils/random-oracle';
 
 moduleFor('util:random-oracle', 'Unit | Util | random-oracle', {
   subject: randomOracle

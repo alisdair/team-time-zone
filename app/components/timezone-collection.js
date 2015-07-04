@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import TimezoneColumn from 'stz/models/timezone-column';
+import TimezoneColumn from 'ttz/models/timezone-column';
 
 const secondsInHour = 3600;
 

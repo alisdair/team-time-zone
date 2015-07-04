@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'stz',
+    modulePrefix: 'ttz',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
