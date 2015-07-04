@@ -162,3 +162,42 @@ input
   margin: 30px auto
   min-width: 300px
   width: 35em
+
+// Based on Tobias Ahlin's SpinKit: https://github.com/tobiasahlin/SpinKit
+.loading-spinner
+  margin: 55px auto
+  width: 55px
+  height: 55px
+  position: relative
+
+  &__text
+    display: none
+
+  &__square
+    background-color: #555
+    width: 15px
+    height: 15px
+    position: absolute
+    top: 0
+    left: 0
+
+    animation: spinner-squares 2.0s infinite ease-in-out
+
+    $spinner-colours: #888 #aaa #ccc #ddd
+    @for $i from 1 through 4
+      &:nth-child(#{$i})
+        animation-delay: -0.5s * ($i - 1)
+        background-color: nth($spinner-colours, $i)
+
+@keyframes spinner-squares
+  25%
+    transform: translateX(40px) rotate(-90deg) scale(0.5)
+  50%
+    // Hack to make FF rotate in the right direction
+    transform: translateX(40px) translateY(40px) rotate(-179deg)
+  50.1%
+    transform: translateX(40px) translateY(40px) rotate(-180deg)
+  75%
+    transform: translateX(0px) translateY(40px) rotate(-270deg) scale(0.5)
+  100%
+    transform: rotate(-360deg)
