@@ -29,8 +29,8 @@ export default function(server) {
       name: 'daniel',
       real_name: 'Daniel McCallum',
       tz: 'Europe/London',
-      tz_label: 'Dublin, Edinburgh, Lisbon, London',
-      tz_offset: 0,
+      tz_label: 'British Summer Time',
+      tz_offset: 3600,
       profile: injectAvatar(0, {
         image_72: avatar(11, 72),
         first_name: 'Daniel',
@@ -42,8 +42,8 @@ export default function(server) {
       name: 'anita',
       real_name: 'Anita Singh',
       tz: 'Europe/London',
-      tz_label: 'Dublin, Edinburgh, Lisbon, London',
-      tz_offset: 0,
+      tz_label: 'British Summer Time',
+      tz_offset: 3600,
       profile: injectAvatar(0, {
         first_name: 'Anita',
         last_name: 'Singh',
@@ -54,8 +54,8 @@ export default function(server) {
       name: 'floflo',
       real_name: 'Flo Bouvait',
       tz: 'Europe/Brussels',
-      tz_label: 'Brussels, Copenhagen, Madrid, Paris',
-      tz_offset: 3600,
+      tz_label: 'Paris',
+      tz_offset: 7200,
       profile: injectAvatar(1, {
         First_name: 'Florence',
         last_name: 'Bouvait',
@@ -67,7 +67,7 @@ export default function(server) {
       real_name: 'Marcus J',
       tz: 'America/Los_Angeles',
       tz_label: 'Pacific Time (US and Canada)',
-      tz_offset: -28800,
+      tz_offset: -25200,
       profile: injectAvatar(2, {
         first_name: null,
         last_name: null,
@@ -79,7 +79,7 @@ export default function(server) {
       real_name: 'David Campbell',
       tz: 'America/Halifax',
       tz_label: 'Atlantic Time (Canada)',
-      tz_offset: -14400,
+      tz_offset: -10800,
       profile: injectAvatar(3, {
         first_name: 'David',
         last_name: 'Campbell',
@@ -91,7 +91,7 @@ export default function(server) {
       real_name: 'Wang Xiaoli',
       tz: 'Asia/Chongqing',
       tz_label: 'Beijing, Chongqing, Hong Kong SAR, Urumqi',
-      tz_offset: 28800,
+      tz_offset: 32400,
       profile: injectAvatar(4, {
         first_name: 'Xiaoli',
         last_name: 'Wang',
@@ -103,7 +103,7 @@ export default function(server) {
       real_name: 'Chong Shen',
       tz: 'Asia/Chongqing',
       tz_label: 'Beijing, Chongqing, Hong Kong SAR, Urumqi',
-      tz_offset: 28800,
+      tz_offset: 32400,
       profile: injectAvatar(5, {
         first_name: 'Shen',
         last_name: 'Chong',
@@ -115,7 +115,7 @@ export default function(server) {
       real_name: 'Łukasz Szczęsny',
       tz: 'Europe/Warsaw',
       tz_label: 'Sarajevo, Skopje, Warsaw, Zagreb',
-      tz_offset: 3600,
+      tz_offset: 7200,
       profile: injectAvatar(6, {
         first_name: 'Lukasz',
         last_name: 'Szczesny',
@@ -127,7 +127,7 @@ export default function(server) {
       real_name: 'SD Carter',
       tz: 'Asia/Chongqing',
       tz_label: 'Beijing, Chongqing, Hong Kong SAR, Urumqi',
-      tz_offset: 28800,
+      tz_offset: 32400,
       profile: injectAvatar(14, {
         first_name: 'SD',
         last_name: 'Carter',
@@ -139,7 +139,7 @@ export default function(server) {
       real_name: 'Yi Ling Tan',
       tz: 'Asia/Kuala_Lumpur',
       tz_label: 'Kuala Lumpur, Singapore',
-      tz_offset: 28800,
+      tz_offset: 32400,
       profile: injectAvatar(8, {
         first_name: 'Yi Ling',
         last_name: 'Tan',
@@ -151,7 +151,7 @@ export default function(server) {
       real_name: 'Maddie Palmer',
       tz: 'Europe/London',
       tz_label: 'Dublin, Edinburgh, Lisbon, London',
-      tz_offset: 0,
+      tz_offset: 3600,
       profile: injectAvatar(9, {
         first_name: 'Maddie',
         last_name: 'Palmer',
@@ -163,7 +163,7 @@ export default function(server) {
       real_name: 'Georg Schumann',
       tz: 'America/Los_Angeles',
       tz_label: 'Pacific Time (US and Canada)',
-      tz_offset: -28800,
+      tz_offset: -25200,
       profile: injectAvatar(10, {
         first_name: 'Georg',
         last_name: 'Schumann',
@@ -175,7 +175,7 @@ export default function(server) {
       real_name: 'Anna Conroy',
       tz: 'America/St_Johns',
       tz_label: 'Newfoundland and Labrador',
-      tz_offset: -12600,
+      tz_offset: -9000,
       profile: injectAvatar(12, {
         first_name: 'Anna',
         last_name: 'Conroy',
