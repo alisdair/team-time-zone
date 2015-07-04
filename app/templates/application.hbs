@@ -1,7 +1,27 @@
-{{#if session.isAuthenticated}}
-  <a {{ action 'invalidateSession' }}>Logout</a>
-{{else}}
-  {{#link-to 'login'}}Login{{/link-to}}
-{{/if}}
+<nav>
+  <ul class="navbar navbar--left">
+    <li>{{link-to 'Slack Time Zones' 'index' class="navbar__brand"}}</li>
+  </ul>
+
+  <ul class="navbar navbar--form navbar--right">
+    <li>
+      {{input value=search placeholder='Search by name' class='input--search'}}
+    </li>
+
+    <li>
+      {{link-to 'About' 'about'}}
+    </li>
+
+    {{#if session.isAuthenticated}}
+      <li>
+        <button {{action 'invalidateSession'}}>Logout</button>
+      </li>
+    {{else}}
+      <li>
+        {{link-to 'Login' 'login'}}
+      </li>
+    {{/if}}
+  </ul>
+</nav>
 
 {{outlet}}
