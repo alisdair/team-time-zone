@@ -1,0 +1,23 @@
+.timezone-container
+  display: flex
+  flex-flow: row nowrap
+  justify-content: space-between
+  margin: $spacing
+
+.timezone-column
+  flex: 0 0 auto
+  background: $light-grey
+  background: linear-gradient(to bottom, $off-white, $light-grey)
+  margin: 0 $spacing
+  border-radius: $border-radius
+  &.timezone-column--empty
+    margin: 0
+
+.timezone-group
+  margin: $spacing
+
+  &__time
+    text-align: center
+
+  &__timezone
+    color: $mid-grey

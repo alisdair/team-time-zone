@@ -1,0 +1,37 @@
+=button-colours($colour)
+  $highlight: desaturate(lighten($colour, 5%), 10%)
+  color: #fff
+  background: $colour
+  border-color: $highlight
+  &:hover, &:focus
+    color: #fff
+    background: $highlight
+
+
+.button
+  background: $light-grey
+  border-radius: $border-radius
+  border: 1px solid transparent
+  border: none
+  color: $foreground
+  padding: $spacing $spacing * 2
+  text-decoration: none
+  user-select: none
+  transition-property: background
+  transition-duration: 150ms
+  &:hover, &:focus
+    outline: 0
+    color: $foreground
+    background: $off-white
+
+  &--primary
+    +button-colours($primary-colour)
+
+  &--success
+    +button-colours($success-colour)
+
+  &--danger
+    +button-colours($danger-colour)
+
+  &--cta
+    font-size: 1.5em

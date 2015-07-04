@@ -1,0 +1,51 @@
+$nav-height: 50px
+$nav-line-height: 20px
+$nav-spacing: ($nav-height - $nav-line-height) / 2
+$nav-control-height: 30px
+$nav-control-spacing: ($nav-height - $nav-control-height) / 2
+
+nav
+  overflow: hidden
+  background: #ddd
+  background: linear-gradient(to bottom, #eee, 90%, #e9e9e9)
+  height: $nav-height
+  margin: 0 0 $gutter * 2 0
+
+.navbar
+  margin: 0
+  padding: 0
+  list-style: none
+
+  &--left
+    float: left
+
+  &--right
+    float: right
+
+  &__brand
+    font-weight: bold
+    font-size: 1.2em
+
+  li
+    display: block
+    float: left
+
+  a, button
+    background: none
+    border: none
+    color: $foreground
+    display: block
+    line-height: $nav-line-height
+    padding: $nav-spacing
+    text-decoration: none
+    transition-property: background
+    transition-duration: 150ms
+
+    &:focus, &:hover
+      outline: 0
+      background: rgba(255, 255, 255, 0.5)
+
+  &--form
+    input
+      margin: $nav-control-spacing $spacing
+      height: $nav-control-height

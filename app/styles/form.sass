@@ -1,0 +1,15 @@
+$input-height: $base-font-size * 2
+$input-padding: ($input-height - $base-font-size) / 2
+
+input
+  height: $input-height
+  padding: $input-padding $spacing
+  border: 1px solid #ccc
+
+  &:focus
+    outline: 0
+    border-color: $focus-colour
+
+  &.input--search
+    border-radius: $input-height / 2
+    padding: $input-padding $spacing * 1.5

@@ -1,0 +1,19 @@
+$avatar-size: 96px
+
+.user-profile
+  min-height: $avatar-size
+  width: $avatar-size
+  margin: $spacing 0 $spacing * 2 0
+
+  &__username
+    overflow: hidden
+    text-overflow: ellipsis
+    word-wrap: nowrap
+
+  &__realname
+    color: $mid-grey
+    font-size: 0.75em
+
+  &__avatar
+    border-radius: $border-radius
+    overflow: hidden
