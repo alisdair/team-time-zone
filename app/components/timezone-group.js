@@ -6,6 +6,9 @@ export default Ember.Component.extend({
   users: [],
   timezoneOffset: 0,
 
+  sort: ['realName'],
+  sortedUsers: Ember.computed.sort('users', 'sort'),
+
   updateLocalTime: function() {
     if (this.get('isDestroyed') || this.get('isDestroying')) {
       return;
