@@ -6,17 +6,29 @@ export default Ember.Component.extend({
   users: [],
   timezoneOffset: 0,
 
-  localtime: Ember.computed('timezoneOffset', function() {
+  updateLocalTime: function() {
+    if (this.get('isDestroyed') || this.get('isDestroying')) {
+      return;
+    }
+
+    this.set('localTime', moment());
+
+    if (!Ember.testing) {
+      Ember.run.later(this, this.updateLocalTime, 1000);
+    }
+  }.on('init'),
+
+  dateTime: Ember.computed('localTime', 'timezoneOffset', function() {
+    let localTime = this.get('localTime');
     let offset = this.get('timezoneOffset') / 60;
-    return moment().utcOffset(offset);
+    return localTime.utcOffset(offset);
   }).readOnly(),
 
-  timezone: Ember.computed('localtime', function() {
-    return this.get('localtime').format('Z');
+  timezone: Ember.computed('dateTime', function() {
+    return this.get('dateTime').format('Z');
   }).readOnly(),
 
-  time: Ember.computed('localtime', function() {
-    return this.get('localtime').format('HH:mm');
+  time: Ember.computed('dateTime', function() {
+    return this.get('dateTime').format('HH:mm');
   }).readOnly()
 });
-
