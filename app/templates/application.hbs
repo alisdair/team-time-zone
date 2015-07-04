@@ -1,9 +1,13 @@
-<nav>
+<nav class="nav {{if navExpanded 'nav--expanded'}}">
   <ul class="navbar navbar--left">
     <li>{{link-to 'Team Time Zone' 'index' class="navbar__brand"}}</li>
   </ul>
 
-  <ul class="navbar navbar--form navbar--right">
+  <div class="navbar navbar--toggle">
+    <button class="button" {{action 'toggleNavbar'}}></button>
+  </div>
+
+  <ul class="navbar navbar--right {{if navExpanded 'navbar--secondary'}}">
     {{outlet 'navbar'}}
     <li>
       {{link-to 'About' 'about'}}
