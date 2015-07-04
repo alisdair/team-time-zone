@@ -138,3 +138,7 @@ Other thought:
 Dealt with the randomly generated users with a Mirage scenario. Would be really cool to use the same data to build fake users for the real app when logged out, if at all possible.
 
 All the above UI work is still pending and probably the most fun to do next. Then it's really just finishing off the authentication and deployment infrastructure.
+
+---
+
+UI work now done, except for somehow showing fake data when not logged in. The components have some complex code in them that should be tested.
