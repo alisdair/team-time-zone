@@ -142,3 +142,7 @@ All the above UI work is still pending and probably the most fun to do next. The
 ---
 
 UI work now done, except for somehow showing fake data when not logged in. The components have some complex code in them that should be tested.
+
+---
+
+Need to write tests for (and refactor/recompose) the timezone-collection component. And it would be good to completely rework the navbar into a component, if that's possible.
