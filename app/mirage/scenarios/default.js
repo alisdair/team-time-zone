@@ -111,7 +111,7 @@ export default function(server) {
       })
     },
     {
-      name: 'lukasz',
+      name: 'lukaszszczesny',
       real_name: 'Łukasz Szczęsny',
       tz: 'Europe/Warsaw',
       tz_label: 'Sarajevo, Skopje, Warsaw, Zagreb',

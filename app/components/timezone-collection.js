@@ -32,7 +32,8 @@ function usersInTimezone(users, tz) {
 export default Ember.Component.extend({
   classNames: ['timezone-container'],
 
-  users: Ember.computed.alias('model'),
+  users: null,
+
   offsets: Ember.computed.mapBy('users', 'tzOffset'),
   earliest: Ember.computed.min('offsets'),
   latest: Ember.computed.max('offsets'),
@@ -51,5 +52,5 @@ export default Ember.Component.extend({
     }
 
     return columns;
-  })
+  }).readOnly()
 });

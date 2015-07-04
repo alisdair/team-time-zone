@@ -20,11 +20,35 @@ h2
   -webkit-flex: 0 0 auto
   flex: 0 0 auto
   background: #eee
+  background: linear-gradient(to bottom, #f7f7f7, #eee)
   margin: 0 10px
+  border-radius: 3px
   &.timezone-column--empty
     margin: 0
 
-.timezone-column__item
-  min-height: 30px
-  min-width: 100px
+.timezone-group
   margin: 10px
+
+  &__time
+    text-align: center
+
+  &__timezone
+    color: #999
+
+.user-profile
+  min-height: 96px
+  width: 96px
+  margin: 10px 0 20px 0
+
+  &__username
+    overflow: hidden
+    text-overflow: ellipsis
+    word-wrap: nowrap
+
+  &__realname
+    color: #999
+    font-size: 0.75em
+
+  &__avatar
+    border-radius: 3px
+    overflow: hidden

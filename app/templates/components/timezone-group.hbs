@@ -1,0 +1,8 @@
+<div class="timezone-group__time">
+  {{time}}
+  <span class="timezone-group__timezone">{{timezone}}</span>
+</div>
+
+{{#each users as |user|}}
+  {{user-profile user=user}}
+{{/each}}
