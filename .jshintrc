@@ -1,5 +1,6 @@
 {
   "predef": [
+    "moment",
     "server",
     "document",
     "window",

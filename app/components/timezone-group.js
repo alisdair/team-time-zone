@@ -6,19 +6,17 @@ export default Ember.Component.extend({
   users: [],
   timezoneOffset: 0,
 
-  timezone: Ember.computed('timezoneOffset', function() {
-    let tz = this.get('timezoneOffset');
-    let sign = tz < 0 ? '-' : '+';
-    let offset = Math.abs(tz);
-    let hours = Math.trunc(offset / 3600);
-    let minutes = (offset % 3600) / 60;
-    let pad = i => (`0${i}`).slice(-2);
-
-    return `${sign}${pad(hours)}:${pad(minutes)}`;
+  localtime: Ember.computed('timezoneOffset', function() {
+    let offset = this.get('timezoneOffset') / 60;
+    return moment().utcOffset(offset);
   }).readOnly(),
 
-  time: Ember.computed('timezoneOffset', function() {
-    return '13:53';
+  timezone: Ember.computed('localtime', function() {
+    return this.get('localtime').format('Z');
+  }).readOnly(),
+
+  time: Ember.computed('localtime', function() {
+    return this.get('localtime').format('HH:mm');
   }).readOnly()
 });
 
