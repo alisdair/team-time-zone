@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import TimezoneGroup from 'ttz/models/timezone-group';
 
 export default Ember.Component.extend({
   classNames: ['timezone-column'],
@@ -9,18 +8,12 @@ export default Ember.Component.extend({
   isEmpty: Ember.computed.empty('users'),
 
   groups: Ember.computed('users.@each.tzOffset', function() {
-    let users = this.get('users');
-
-    if (Ember.isNone(users)) {
-      return Ember.A();
-    }
-
     let groups = {};
-    users.forEach(user => {
+    this.get('users').forEach(user => {
       let timezone = user.get('tzOffset');
 
       if (Ember.isNone(groups[timezone])) {
-        groups[timezone] = TimezoneGroup.create({
+        groups[timezone] = Ember.Object.create({
           timezoneOffset: timezone,
           users: Ember.A()
         });

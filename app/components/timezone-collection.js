@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import TimezoneColumn from 'ttz/models/timezone-column';
 
 const secondsInHour = 3600;
 
@@ -45,7 +44,7 @@ export default Ember.Component.extend({
     let columns = Ember.A();
 
     for (let tz = start; tz < stop; tz = nextTimezone(tz)) {
-      columns.push(TimezoneColumn.create({
+      columns.push(Ember.Object.create({
         timezoneStart: tz,
         users: usersInTimezone(users, tz)
       }));
