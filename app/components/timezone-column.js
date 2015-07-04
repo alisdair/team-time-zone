@@ -23,7 +23,7 @@ export default Ember.Component.extend({
     });
 
     let results = Ember.A();
-    Object.keys(groups).sort((a, b) => b - a).forEach(timezone => {
+    Object.keys(groups).sort((a, b) => a - b).forEach(timezone => {
       results.push(groups[timezone]);
     });
 
