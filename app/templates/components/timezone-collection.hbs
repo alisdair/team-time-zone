@@ -1,3 +1,7 @@
 {{#each columns as |column|}}
   {{timezone-column users=column.users}}
+{{else}}
+  <div class="cta">
+    <p>No users found.</p>
+  </div>
 {{/each}}

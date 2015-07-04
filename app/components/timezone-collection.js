@@ -38,7 +38,7 @@ export default Ember.Component.extend({
   earliest: Ember.computed.min('offsets'),
   latest: Ember.computed.max('offsets'),
 
-  columns: Ember.computed('users.@each.tzOffset', function() {
+  columns: Ember.computed('users.@each', 'earliest', 'latest', function() {
     let users = this.get('users');
     let start = calculateTimezoneStart(this.get('earliest'));
     let stop = calculateTimezoneStop(this.get('latest'));

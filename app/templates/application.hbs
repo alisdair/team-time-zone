@@ -4,10 +4,7 @@
   </ul>
 
   <ul class="navbar navbar--form navbar--right">
-    <li>
-      {{input value=search placeholder='Search by name' class='input--search'}}
-    </li>
-
+    {{outlet 'navbar'}}
     <li>
       {{link-to 'About' 'about'}}
     </li>
