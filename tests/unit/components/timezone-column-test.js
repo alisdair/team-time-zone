@@ -5,15 +5,6 @@ moduleForComponent('timezone-column', 'Unit | Component | Timezone Column', {
   unit: true
 });
 
-function buildUsers(...offsets) {
-  return Ember.A(offsets).map((offset, i) => {
-    return Ember.Object.create({
-      name: `User ${i}`,
-      tzOffset: offset
-    });
-  });
-}
-
 test('groups users by timezone offset', function(assert) {
   assert.expect(4);
 
