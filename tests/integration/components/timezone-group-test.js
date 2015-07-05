@@ -2,9 +2,6 @@ import hbs from 'htmlbars-inline-precompile';
 import { moduleForComponent, test } from 'ember-qunit';
 import Ember from 'ember';
 
-let originalMoment;
-let currentTime;
-
 function shallowText($element) {
   return $element.contents()
    .filter((i, e) => e.nodeType === window.Node.TEXT_NODE).text().trim();
@@ -26,13 +23,15 @@ function buildUsers(...names) {
   });
 }
 
+let originalMoment;
+
 moduleForComponent('timezone-group', 'Integration - Component - Timezone Group', {
   integration: true,
 
   beforeEach() {
     originalMoment = window.moment;
     window.moment = function() {
-      return originalMoment(currentTime);
+      return originalMoment('2015-07-04T22:15:00Z');
     };
   },
 
@@ -44,7 +43,6 @@ moduleForComponent('timezone-group', 'Integration - Component - Timezone Group',
 test('displays the time and timezone', function(assert) {
   assert.expect(2);
 
-  currentTime = '2015-07-04 23:15:00 +0100';
   this.set('offset', -9000);
   this.set('users', []);
 
@@ -64,7 +62,6 @@ test('displays the time and timezone', function(assert) {
 test('lists the users for the timezone, sorted by name', function(assert) {
   assert.expect(2);
 
-  currentTime = '2015-07-04 23:15:00 +0100';
   this.set('offset', 3600);
 
   let users = buildUsers('Sam Healy', 'Gloria Mendoza', 'Poussey Washington');
