@@ -1,21 +1,11 @@
 import Mirage from 'ember-cli-mirage';
-import timezones from 'ttz/data/slack-timezones';
-import oracle from 'ttz/utils/random-oracle';
-
-let timezone = oracle(timezones);
-
-const titles = [
-  'Software Engineer', 'Systems Manager', 'Customer Success', 'Designer',
-  'Marketing', 'Sales', 'Administrator', 'Manager', 'Office Assistant'
-];
-
-let title = oracle(titles);
 
 const avatarBase = 'http://slack.global.ssl.fastly.net/3654/img/avatars';
 
 function avatar(i, size) {
   let x = (`000${i % 25}`).slice(-4);
-  return `${avatarBase}/ava_${x}-${size}.png`;
+  let suffix = size === 192 ? '' : `-${size}`;
+  return `${avatarBase}/ava_${x}${suffix}.png`;
 }
 
 // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
@@ -26,9 +16,9 @@ export default Mirage.Factory.extend({
   status: null,
   color: '9f69e7',
   real_name: i => `User-${i} Lastname`,
-  tz: i => timezone(i).name,
-  tz_label: i => timezone(i).label,
-  tz_offset: i => timezone(i).offset,
+  tz: 'Europe/London',
+  tz_label: 'London',
+  tz_offset: 0,
   profile(i) {
     let first_name = `User-${i}`;
     return {
@@ -36,7 +26,7 @@ export default Mirage.Factory.extend({
       last_name: 'Lastname',
       real_name: `${first_name} Lastname`,
       real_name_normalized: `${first_name} Lastname`,
-      title: title(i),
+      title: 'Cool Person',
       email: `user-${i}@example.com`,
       image_24: avatar(i, 24),
       image_32: avatar(i, 32),
