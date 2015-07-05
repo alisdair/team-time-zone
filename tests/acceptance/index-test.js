@@ -98,5 +98,79 @@ test('distant timezones have more space between them', function(assert) {
   });
 });
 
-skip('can search for users by name', function(assert) {
+test('can search for users by name', function(assert) {
+  assert.expect(12);
+
+  authenticateSession();
+
+  let alexa = server.create('user', {
+    'name': 'alexa',
+    'real_name': 'Alexa Gamblin',
+    'profile': {
+      'real_name': 'Alexa Gamblin'
+    }
+  });
+  let david = server.create('user', {
+    'name': 'david',
+    'real_name': 'David Gambon',
+    'profile': {
+      'real_name': 'David Gambon'
+    }
+  });
+  let daya = server.create('user', {
+    'name': 'diaz',
+    'real_name': 'Dayanara Diaz',
+    'profile': {
+      'real_name': 'Dayanara Diaz'
+    }
+  });
+
+  let usernames = function() {
+    return find('.user-profile--username').map(function() {
+      return $(this).text().trim();
+    }).get();
+  };
+
+  visit('/');
+
+  andThen(function() {
+    assert.equal(find('.user-profile').length, 3, 'shows 3 users');
+  });
+
+  fillIn('.input--search', 'Gam').then(() => {
+    assert.equal(find('.user-profile').length, 2,
+                 'searching for "Gam" shows 2 users');
+    assert.equal(find('.user-profile__username:contains(david)').length, 1,
+                 'shows David Gambon');
+    assert.equal(find('.user-profile__username:contains(alexa)').length, 1,
+                 'shows Alexa Gamblin');
+  });
+
+  fillIn('.input--search', 'Da').then(() => {
+    assert.equal(find('.user-profile').length, 2,
+                 'searching for "Da" shows 2 users');
+    assert.equal(find('.user-profile__username:contains(david)').length, 1,
+                 'shows David Gambon');
+    assert.equal(find('.user-profile__username:contains(diaz)').length, 1,
+                 'shows Dayanara Diaz');
+  });
+
+  fillIn('.input--search', 'David').then(() => {
+    assert.equal(find('.user-profile').length, 1,
+                 'searching for "David" shows 1 user');
+    assert.equal(find('.user-profile__username:contains(david)').length, 1,
+                 'shows David Gambon');
+  });
+
+  fillIn('.input--search', 'Potato').then(() => {
+    assert.equal(find('.user-profile').length, 0,
+                 'searching for "Potato" shows no users');
+    assert.equal(find('.cta').text().trim(), 'No users found.',
+                 'shows message that no users are found');
+  });
+
+  fillIn('.input--search', '').then(() => {
+    assert.equal(find('.user-profile').length, 3,
+                 'clearing the search shows all 3 users');
+  });
 });
