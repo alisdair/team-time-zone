@@ -146,3 +146,7 @@ UI work now done, except for somehow showing fake data when not logged in. The c
 ---
 
 Need to write tests for (and refactor/recompose) the timezone-collection component. And it would be good to completely rework the navbar into a component, if that's possible.
+
+---
+
+All important tests now written. Navbar extraction is the last significant UI code work to do. Otherwise it's just the auth and deployment stuff.
