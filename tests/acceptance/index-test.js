@@ -55,7 +55,47 @@ test('shows a list of users grouped by timezone', function(assert) {
   });
 });
 
-skip('distant timezones have more space between them', function(assert) {
+test('distant timezones have more space between them', function(assert) {
+  assert.expect(4);
+
+  authenticateSession();
+
+  let seattle = server.create('user', { name: 'seattle', 'tz_offset': -25200 });
+  let london = server.create('user', { name: 'london', 'tz_offset': 3600 });
+  let madrid = server.create('user', { name: 'madrid', 'tz_offset': 7200 });
+
+  let position = $el => Math.round($el.offset().left);
+
+  visit('/');
+
+  andThen(function() {
+    assert.equal(find('.user-profile').length, 3, 'shows 3 users');
+
+    let $seattle = find('.user-profile:contains(seattle)');
+    let $london = find('.user-profile:contains(london)');
+    let $madrid = find('.user-profile:contains(madrid)');
+
+    let positions = {
+      seattle: position($seattle),
+      london: position($london),
+      madrid: position($madrid)
+    };
+
+    assert.ok(positions.seattle < positions.london,
+              `Seattle (${positions.seattle}) is to the left of
+               London (${positions.london})`);
+
+    assert.ok(positions.london < positions.madrid,
+              `London (${positions.london}) is to the left of
+               Madrid (${positions.madrid})`);
+
+    let atlantic = positions.london - positions.seattle;
+    let channel = positions.madrid - positions.london;
+
+    assert.ok(atlantic > channel * 2,
+              `Atlantic gap (${atlantic}) is more than twice the
+               Channel gap (${channel})`);
+  });
 });
 
 skip('can search for users by name', function(assert) {
