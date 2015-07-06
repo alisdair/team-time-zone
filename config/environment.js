@@ -44,6 +44,11 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV.torii.providers['slack-oauth2'].apiKey = '2342810598.7294671267';
+
+    ENV.APP.slackHost = null;
+    ENV.APP.slackNamespace = 'slack';
+
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
