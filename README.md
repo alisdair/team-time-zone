@@ -4,6 +4,8 @@
 
 This app helps you work out what time it is for everyone on your team. Just sign in with Slack to sync up your team, and see what time it is for all your coworkers.
 
+See also the [team-time-zone-backend](https://github.com/alisdair/team-time-zone-backend) repository, which provides the last step of authentication.
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
@@ -26,9 +28,7 @@ You will need the following things properly installed on your computer.
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
+Development mode uses a [Mirage server](http://www.ember-cli-mirage.com/) to provide some sample data.
 
 ### Running Tests
 
@@ -39,16 +39,3 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 * `ember build` (development)
 * `ember build --environment production` (production)
-
-### Deploying
-
-More to come.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
