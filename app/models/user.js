@@ -4,6 +4,7 @@ export default DS.Model.extend({
   name: DS.attr('string'),
 
   deleted: DS.attr('boolean'),
+  isBot: DS.attr('boolean'),
 
   firstName: DS.attr('string'),
   lastName: DS.attr('string'),

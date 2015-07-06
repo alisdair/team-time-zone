@@ -5,7 +5,11 @@ export default Ember.Controller.extend({
 
   search: '',
 
-  users: Ember.computed.readOnly('model'),
+  users: Ember.computed('model.@each', function() {
+    return this.get('model').filter(user => {
+      return !(user.get('deleted') || user.get('isBot'));
+    });
+  }),
 
   tooManyUsers: Ember.computed.gt('filteredUsers.length', 100),
 
