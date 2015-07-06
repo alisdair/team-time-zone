@@ -1,1 +1,11 @@
-{{timezone-collection users=filteredUsers}}
+{{#if tooManyUsers}}
+  <div class="text-content text-content--cta">
+    <h2>Whoa, too many users!</h2>
+
+    <p>Sorry, this app doesn't cope well with huge Slack teams! Found <strong>{{pluralize filteredUsers.length 'user'}}</strong>.</p>
+
+    <p>Please search for people by name to reduce the number of users.</p>
+  </div>
+{{else}}
+  {{timezone-collection users=filteredUsers}}
+{{/if}}

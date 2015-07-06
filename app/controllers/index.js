@@ -7,6 +7,8 @@ export default Ember.Controller.extend({
 
   users: Ember.computed.readOnly('model'),
 
+  tooManyUsers: Ember.computed.gt('filteredUsers.length', 100),
+
   filteredUsers: Ember.computed('search', 'users.{name,realName}', function() {
     let users = this.get('users');
     let search = this.get('search').toLowerCase();
@@ -19,5 +21,5 @@ export default Ember.Controller.extend({
     return users.filter(user => {
       return matches(user.get('name')) || matches(user.get('realName'));
     });
-  })
+  }).readOnly()
 });

@@ -14,10 +14,34 @@ export default Ember.Component.extend({
   users: null,
 
   offsets: Ember.computed.mapBy('users', 'tzOffset'),
-  earliest: Ember.computed.min('offsets'),
-  latest: Ember.computed.max('offsets'),
 
-  columns: Ember.computed('users.@each', 'earliest', 'latest', function() {
+  earliest: Ember.computed('offsets.@each', function() {
+    let min = Infinity;
+    let offsets = this.get('offsets');
+
+    for (let i = 0; i < offsets.length; i++) {
+      if (offsets[i] < min) {
+        min = offsets[i];
+      }
+    }
+
+    return min;
+  }),
+
+  latest: Ember.computed('offsets.@each', function() {
+    let max = -Infinity;
+    let offsets = this.get('offsets');
+
+    for (let i = 0; i < offsets.length; i++) {
+      if (offsets[i] > max) {
+        max = offsets[i];
+      }
+    }
+
+    return max;
+  }),
+
+  columns: Ember.computed('earliest', 'latest', function() {
     let users = this.get('users');
     let start = timezoneStart(this.get('earliest'));
     let stop = timezoneNext(timezoneStart(this.get('latest')));
