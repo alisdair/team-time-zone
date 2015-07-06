@@ -160,14 +160,14 @@ export default function(server) {
     },
     {
       name: 'georg',
-      real_name: 'Georg Schumann',
+      real_name: 'Georg Hans Schumann',
       tz: 'America/Los_Angeles',
       tz_label: 'Pacific Time (US and Canada)',
       tz_offset: -25200,
       profile: injectAvatar(10, {
         first_name: 'Georg',
         last_name: 'Schumann',
-        real_name: 'Georg Schumann'
+        real_name: 'Georg Hans Schumann'
       })
     },
     {

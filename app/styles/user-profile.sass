@@ -1,18 +1,24 @@
 $avatar-size: 96px
 
+=ellipsis
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
 .user-profile
   min-height: $avatar-size
   width: $avatar-size
   margin: $spacing 0 $spacing * 2 0
 
   &__username
-    overflow: hidden
-    text-overflow: ellipsis
-    word-wrap: nowrap
+    +ellipsis
+    height: 1.5em
 
   &__realname
+    +ellipsis
     color: $mid-grey
     font-size: 0.75em
+    height: 1.5em
 
   &__avatar
     border-radius: $border-radius
