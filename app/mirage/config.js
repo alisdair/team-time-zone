@@ -19,4 +19,11 @@ export default function() {
       user
     };
   });
+
+  this.post('/api/tokens', function() {
+    return {
+      accessToken: 'token',
+      scope: 'identify,read'
+    };
+  });
 }

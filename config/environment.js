@@ -14,8 +14,8 @@ module.exports = function(environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      slackHost: 'https://slack.com',
+      slackNamespace: 'api'
     }
   };
 
@@ -23,14 +23,24 @@ module.exports = function(environment) {
     'default-src': "'none'",
     'script-src': "'self'",
     'font-src': "'self' fonts.gstatic.com",
-    'connect-src': "'self'",
+    'connect-src': "'self' slack.com",
     'img-src': "'self' *",
     'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
     'media-src': "'self'"
   };
 
   ENV['simple-auth'] = {
-    authorizer: 'authorizer:slack'
+    authorizer: 'authorizer:slack',
+    crossOriginWhitelist: ['https://slack.com']
+  };
+
+  ENV.torii = {
+    providers: {
+      'slack-oauth2': {
+        scope: 'identify,read',
+        apiKey: '2342810598.6063955397',
+      }
+    }
   };
 
   if (environment === 'development') {
@@ -43,6 +53,9 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     ENV['simple-auth'].store = 'simple-auth-session-store:ephemeral';
+
+    ENV.APP.slackHost = null;
+    ENV.APP.slackNamespace = 'slack';
 
     // Testem prefers this...
     ENV.baseURL = '/';

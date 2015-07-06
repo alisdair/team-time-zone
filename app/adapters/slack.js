@@ -1,11 +1,12 @@
+import Environment from 'ttz/config/environment';
 import Ember from 'ember';
 import DS from 'ember-data';
 
 let get = Ember.get;
 
 export default DS.Adapter.extend({
-  host: null,
-  namespace: 'slack',
+  host: Environment.APP.slackHost,
+  namespace: Environment.APP.slackNamespace,
   defaultSerializer: 'slack',
 
   find(store, type, id) {

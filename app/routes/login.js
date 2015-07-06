@@ -1,10 +1,14 @@
 import Ember from 'ember';
 import UnauthenticatedRouteMixin from 'simple-auth/mixins/unauthenticated-route-mixin';
+import { randomUrlSafe } from 'ttz/utils/random';
 
 export default Ember.Route.extend(UnauthenticatedRouteMixin, {
   actions: {
     login() {
-      this.get('session').authenticate('authenticator:slack');
+      let session = this.get('session');
+      let state = randomUrlSafe(32);
+      session.set('state', state);
+      session.authenticate('authenticator:slack-torii', state);
     }
   }
 });
