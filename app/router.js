@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('login');
   this.route('authorize');
   this.route('about');
+  this.route('catchall', { path: '/*wildcard' });
 });
 
 export default Router;
