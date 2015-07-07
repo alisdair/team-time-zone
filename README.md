@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/alisdair/team-time-zone.svg)](https://travis-ci.org/alisdair/team-time-zone)
 
+![Team Time Zone](http://i.imgur.com/zl2xQIA.png)
+
 This app helps you work out what time it is for everyone on your team. Just sign in with Slack to sync up your team, and see what time it is for all your coworkers.
 
 See also the [team-time-zone-backend](https://github.com/alisdair/team-time-zone-backend) repository, which provides the last step of authentication.
