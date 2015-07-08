@@ -36,5 +36,16 @@ export default Ember.Component.extend({
 
   time: Ember.computed('dateTime', 'timeFormat', function() {
     return this.get('dateTime').format(this.get('timeFormat'));
-  }).readOnly()
+  }).readOnly(),
+
+  actions: {
+    toggleTimeFormat() {
+      let timeFormat = this.get('timeFormat');
+      if (timeFormat === 'HH:mm') {
+        this.set('session.timeFormat', 'h:mma');
+      } else {
+        this.set('session.timeFormat', 'HH:mm');
+      }
+    }
+  }
 });
