@@ -8,16 +8,20 @@
   flex: 0 0 auto
   background: $light-grey
   background: linear-gradient(to bottom, $off-white, $light-grey)
-  margin: 0 $spacing
   border-radius: $border-radius
+  margin: 0 $spacing
   &.timezone-column--empty
     margin: 0
 
 .timezone-group
-  margin: $spacing
+  margin: $spacing $spacing $spacing * 3 $spacing
 
   &__time
+    font-size: 1.25em
     text-align: center
 
   &__timezone
     color: $mid-grey
+    font-size: 0.75em
+    font-weight: normal
+    text-align: center

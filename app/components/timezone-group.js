@@ -9,6 +9,9 @@ export default Ember.Component.extend({
   sort: ['realName'],
   sortedUsers: Ember.computed.sort('users', 'sort'),
 
+  defaultTimeFormat: 'HH:mm',
+  timeFormat: Ember.computed.or('session.timeFormat', 'defaultTimeFormat'),
+
   updateLocalTime: function() {
     if (this.get('isDestroyed') || this.get('isDestroying')) {
       return;
@@ -31,7 +34,7 @@ export default Ember.Component.extend({
     return this.get('dateTime').format('Z');
   }).readOnly(),
 
-  time: Ember.computed('dateTime', function() {
-    return this.get('dateTime').format('HH:mm');
+  time: Ember.computed('dateTime', 'timeFormat', function() {
+    return this.get('dateTime').format(this.get('timeFormat'));
   }).readOnly()
 });
