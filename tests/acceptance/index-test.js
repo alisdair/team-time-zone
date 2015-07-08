@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import startApp from 'ttz/tests/helpers/start-app';
 
 let application;
@@ -37,7 +37,7 @@ test('shows a list of users grouped by timezone', function(assert) {
   authenticateSession();
 
   let tzOffsets = [-25200, -25200, 3600, 7200, 7200];
-  let users = tzOffsets.map(tzo => server.create('user', { 'tz_offset': tzo }));
+  tzOffsets.map(tzo => server.create('user', { 'tz_offset': tzo }));
 
   visit('/');
 
@@ -60,9 +60,9 @@ test('distant timezones have more space between them', function(assert) {
 
   authenticateSession();
 
-  let seattle = server.create('user', { name: 'seattle', 'tz_offset': -25200 });
-  let london = server.create('user', { name: 'london', 'tz_offset': 3600 });
-  let madrid = server.create('user', { name: 'madrid', 'tz_offset': 7200 });
+  server.create('user', { name: 'seattle', 'tz_offset': -25200 });
+  server.create('user', { name: 'london', 'tz_offset': 3600 });
+  server.create('user', { name: 'madrid', 'tz_offset': 7200 });
 
   let position = $el => Math.round($el.offset().left);
 
@@ -103,33 +103,27 @@ test('can search for users by name', function(assert) {
 
   authenticateSession();
 
-  let alexa = server.create('user', {
+  server.create('user', {
     'name': 'alexa',
     'real_name': 'Alexa Gamblin',
     'profile': {
       'real_name': 'Alexa Gamblin'
     }
   });
-  let david = server.create('user', {
+  server.create('user', {
     'name': 'david',
     'real_name': 'David Gambon',
     'profile': {
       'real_name': 'David Gambon'
     }
   });
-  let daya = server.create('user', {
+  server.create('user', {
     'name': 'diaz',
     'real_name': 'Dayanara Diaz',
     'profile': {
       'real_name': 'Dayanara Diaz'
     }
   });
-
-  let usernames = function() {
-    return find('.user-profile--username').map(function() {
-      return $(this).text().trim();
-    }).get();
-  };
 
   visit('/');
 

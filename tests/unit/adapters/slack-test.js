@@ -90,7 +90,7 @@ test('ajax with successful response', function(assert) {
 
   let body = JSON.stringify({ ok: true, user: 'stub' });
 
-  let server = new Pretender(function() {
+  new Pretender(function() {
     this.get('/url', function(request) {
       assert.equal(request.queryParams.data, 'here', 'sends request data');
       return [200, JSON_HEADERS, body];
@@ -115,8 +115,8 @@ test('ajax with successful response but { ok: false }', function(assert) {
 
   let body = JSON.stringify({ ok: false, error: 'whatever' });
 
-  let server = new Pretender(function() {
-    this.get('/url', function(request) {
+  new Pretender(function() {
+    this.get('/url', function() {
       return [200, JSON_HEADERS, body];
     });
   });
@@ -139,8 +139,8 @@ test('ajax with error response', function(assert) {
 
   let body = JSON.stringify({ message: 'whatever' });
 
-  let server = new Pretender(function() {
-    this.get('/url', function(request) {
+  new Pretender(function() {
+    this.get('/url', function() {
       return [500, JSON_HEADERS, body];
     });
   });
