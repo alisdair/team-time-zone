@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import Base from 'simple-auth/authenticators/base';
+import config from 'ttz/config/environment';
 
 export default Base.extend({
   torii: null,
@@ -9,6 +10,13 @@ export default Base.extend({
   },
 
   authenticate(state) {
+    if (config.environment !== 'production') {
+      return Ember.RSVP.resolve({
+        accessToken: 'token',
+        scope: 'identify,read'
+      });
+    }
+
     return new Ember.RSVP.Promise((resolve, reject) => {
       this.torii.open('slack-oauth2', state).then(data => {
         return Ember.$.ajax({
