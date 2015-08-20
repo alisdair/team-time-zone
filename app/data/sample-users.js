@@ -4,31 +4,31 @@ let users = [
   {
     name: 'marcus',
     realName: 'Marcus J',
-    image192: 'http://slack.global.ssl.fastly.net/3654/img/avatars/ava_0002.png',
+    image192: '/assets/avatars/marcus.jpg',
     tzOffset: -25200
   },
   {
     name: 'dc',
     realName: 'David Campbell',
-    image192: 'http://slack.global.ssl.fastly.net/3654/img/avatars/ava_0003.png',
+    image192: '/assets/avatars/dc.jpg',
     tzOffset: -10800
   },
   {
     name: 'lukaszszczesny',
     realName: 'Łukasz Szczęsny',
-    image192: 'http://slack.global.ssl.fastly.net/3654/img/avatars/ava_0006.png',
+    image192: '/assets/avatars/lukasz.jpg',
     tzOffset: 7200
   },
   {
     name: 'yi',
     realName: 'Yi Ling Tan',
-    image192: 'http://slack.global.ssl.fastly.net/3654/img/avatars/ava_0008.png',
+    image192: '/assets/avatars/yi.jpg',
     tzOffset: 32400
   },
   {
     name: 'maddie',
     realName: 'Maddie Palmer',
-    image192: 'http://slack.global.ssl.fastly.net/3654/img/avatars/ava_0009.png',
+    image192: '/assets/avatars/maddie.jpg',
     tzOffset: 3600
   }
 ];
