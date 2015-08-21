@@ -15,7 +15,7 @@ export default Ember.Component.extend({
 
   offsets: Ember.computed.mapBy('users', 'tzOffset'),
 
-  earliest: Ember.computed('offsets.@each', function() {
+  earliest: Ember.computed('offsets.[]', function() {
     let min = Infinity;
     let offsets = this.get('offsets');
 
@@ -28,7 +28,7 @@ export default Ember.Component.extend({
     return min;
   }),
 
-  latest: Ember.computed('offsets.@each', function() {
+  latest: Ember.computed('offsets.[]', function() {
     let max = -Infinity;
     let offsets = this.get('offsets');
 

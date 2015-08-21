@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
 
   search: '',
 
-  users: Ember.computed('model.@each', function() {
+  users: Ember.computed('model.[]', function() {
     return this.get('model').filter(user => {
       return !(user.get('deleted') || user.get('isBot'));
     });
