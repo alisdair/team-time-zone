@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
     });
   }),
 
-  tooManyUsers: Ember.computed.gt('filteredUsers.length', 100),
+  tooManyUsers: Ember.computed.gt('filteredUsers.length', 250),
 
   filteredUsers: Ember.computed('search', 'users.{name,realName}', function() {
     let users = this.get('users');
