@@ -1,6 +1,6 @@
 {
   "name": "ttz",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "time zones for your Slack team",
   "private": true,
   "directories": {
