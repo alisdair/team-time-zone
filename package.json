@@ -48,6 +48,6 @@
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
     "ember-suave": "0.1.11",
-    "torii": "0.5.0"
+    "torii": "alisdair/torii#oauth2-state-csrf-protection"
   }
 }
