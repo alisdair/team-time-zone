@@ -1,6 +1,6 @@
 {
   "name": "ttz",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "time zones for your Slack team",
   "private": true,
   "directories": {
@@ -38,7 +38,7 @@
     "ember-cli-pretender": "0.3.2",
     "ember-cli-qunit": "1.0.0",
     "ember-cli-release": "0.2.3",
-    "ember-cli-sass": "4.0.1",
+    "ember-cli-sass": "5.1.0",
     "ember-cli-simple-auth": "0.8.0",
     "ember-cli-simple-auth-oauth2": "0.8.0",
     "ember-cli-simple-auth-testing": "0.8.0",
@@ -48,6 +48,6 @@
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
     "ember-suave": "0.1.11",
-    "torii": "0.5.0"
+    "torii": "0.6.1"
   }
 }
