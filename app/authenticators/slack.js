@@ -13,7 +13,7 @@ export default Base.extend({
     if (config.environment !== 'production') {
       return Ember.RSVP.resolve({
         accessToken: 'token',
-        scope: 'identify,read'
+        scope: 'identify,users:read'
       });
     }
 
