@@ -51,7 +51,10 @@ $nav-control-spacing: ($nav-height - $nav-control-height) / 2
     $clock-size: 32px
     a
       padding-left: $clock-size + $gutter * 2
-      background: url(/assets/clock.svg) no-repeat ($gutter 50%) / $clock-size
+      background-image: url(/assets/clock.svg)
+      background-repeat: no-repeat
+      background-position: $gutter 50%
+      background-size: 32px
 
   li
     display: block
