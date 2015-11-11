@@ -5,7 +5,7 @@ export default {
   before: 'simple-auth',
   after: 'torii',
   initialize(container, application) {
-    let torii         = container.lookup('torii:main');
+    let torii         = container.lookup('service:torii');
     let authenticator = Authenticator.create({ torii });
     application.register('authenticator:slack-torii', authenticator,
                          { instantiate: false });
