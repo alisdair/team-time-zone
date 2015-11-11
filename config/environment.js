@@ -37,7 +37,7 @@ module.exports = function(environment) {
   ENV.torii = {
     providers: {
       'slack-oauth2': {
-        scope: 'identify,read',
+        scope: 'identify,users:read',
         apiKey: '2342810598.6063955397',
       }
     }
