@@ -11,14 +11,14 @@ export default Ember.Controller.extend({
     });
   }),
 
-  userFilter: 'all',
+  userFilter: Ember.computed.alias('session.userFilter'),
 
   tooManyUsers: Ember.computed.gt('filteredUsers.length', 250),
 
   filteredUsers: Ember.computed('search', 'userFilter', 'users.{name,realName}', function() {
     let users = this.get('users');
     let search = this.get('search').toLowerCase();
-    let userType = this.get('userFilter').toLowerCase();
+    let userType = this.get('userFilter');
 
     if (userType === 'full') {
       users = users.filter(user => {
