@@ -1,3 +1,8 @@
 <li>
+    <select value="userFilter" onchange={{action "filterUserTypes" value="target.value"}} class="input--userfilter">
+        <option value="">All Users</option>
+        <option value="full">Full Users</option>
+        <option value="restricted">Restricted Users</option>
+    </select>
   {{input value=search placeholder='Search by name' class='input--search'}}
 </li>

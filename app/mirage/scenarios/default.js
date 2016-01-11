@@ -179,6 +179,20 @@ export let users = [
       last_name: 'Conroy',
       real_name: 'Anna Conroy'
     })
+  },
+  {
+    name: 'restricted',
+    real_name: 'Restricted User',
+    tz: 'America/Los_Angeles',
+    tz_label: 'Pacific Time (US and Canada)',
+    tz_offset: -25200,
+    profile: injectAvatar(10, {
+      first_name: 'Restricted',
+      last_name: 'User',
+      real_name: 'Restricted User'
+    }),
+    is_restricted: true,
+    is_ultra_restricted: true
   }
 ];
 
