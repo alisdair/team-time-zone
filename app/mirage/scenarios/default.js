@@ -192,7 +192,7 @@ export let users = [
       real_name: 'Restricted User'
     }),
     is_restricted: true,
-    is_ultra_restricted: true,
+    is_ultra_restricted: true
   }
 ];
 

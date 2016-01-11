@@ -10,14 +10,8 @@ export default Ember.Controller.extend({
       return !(user.get('deleted') || user.get('isBot'));
     });
   }),
-  
+
   userFilter: 'all',
-  
-  actions: {
-      filterUserTypes: function (userType) {
-          this.set('userFilter', userType);
-      }
-  },
 
   tooManyUsers: Ember.computed.gt('filteredUsers.length', 250),
 
@@ -25,15 +19,15 @@ export default Ember.Controller.extend({
     let users = this.get('users');
     let search = this.get('search').toLowerCase();
     let userType = this.get('userFilter').toLowerCase();
-    
-    if(userType === 'full') {
-        users = users.filter(user => {
-            return user.get('isRestricted') === false;
-        });
-    } else if(userType === 'restricted') {
-        users = users.filter(user => {
-            return user.get('isRestricted') === true;
-        });
+
+    if (userType === 'full') {
+      users = users.filter(user => {
+        return user.get('isRestricted') === false;
+      });
+    } else if (userType === 'restricted') {
+      users = users.filter(user => {
+        return user.get('isRestricted') === true;
+      });
     }
 
     if (Ember.isNone(users) || Ember.isBlank(search)) {
@@ -44,5 +38,11 @@ export default Ember.Controller.extend({
     return users.filter(user => {
       return matches(user.get('name')) || matches(user.get('realName'));
     });
-  }).readOnly()
+  }).readOnly(),
+
+  actions: {
+    filterUserTypes(userType) {
+      this.set('userFilter', userType);
+    }
+  }
 });
