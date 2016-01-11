@@ -10,12 +10,31 @@ export default Ember.Controller.extend({
       return !(user.get('deleted') || user.get('isBot'));
     });
   }),
+  
+  userFilter: 'all',
+  
+  actions: {
+      filterUserTypes: function (userType) {
+          this.set('userFilter', userType);
+      }
+  },
 
   tooManyUsers: Ember.computed.gt('filteredUsers.length', 250),
 
-  filteredUsers: Ember.computed('search', 'users.{name,realName}', function() {
+  filteredUsers: Ember.computed('search', 'userFilter', 'users.{name,realName}', function() {
     let users = this.get('users');
     let search = this.get('search').toLowerCase();
+    let userType = this.get('userFilter').toLowerCase();
+    
+    if(userType === 'full') {
+        users = users.filter(user => {
+            return user.get('isRestricted') === false;
+        });
+    } else if(userType === 'restricted') {
+        users = users.filter(user => {
+            return user.get('isRestricted') === true;
+        });
+    }
 
     if (Ember.isNone(users) || Ember.isBlank(search)) {
       return users;
