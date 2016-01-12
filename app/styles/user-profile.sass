@@ -1,4 +1,4 @@
-$avatar-size: 96px
+$avatar-size: 48px
 
 =ellipsis
   overflow: hidden
@@ -6,9 +6,16 @@ $avatar-size: 96px
   white-space: nowrap
 
 .user-profile
+  display: flex
   min-height: $avatar-size
-  width: $avatar-size
   margin: $spacing 0 $spacing * 2 0
+  width: 128px
+  transition-duration: 150ms
+  transition-property: all
+
+  &__details
+    flex: 1
+    margin-left: 0.5em
 
   &__username
     +ellipsis
@@ -22,4 +29,18 @@ $avatar-size: 96px
 
   &__avatar
     border-radius: $border-radius
+    height: $avatar-size
+    margin: 0 auto
     overflow: hidden
+    transition-duration: 150ms
+    transition-property: all
+    width: $avatar-size
+
+@media screen and (min-height: 700px)
+  .user-profile
+    flex-direction: column
+    width: 96px
+
+    &__avatar
+      height: 96px
+      width: 96px
