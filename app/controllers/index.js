@@ -7,7 +7,9 @@ export default Ember.Controller.extend({
 
   users: Ember.computed('model.[]', function() {
     return this.get('model').filter(user => {
-      return !(user.get('deleted') || user.get('isBot'));
+      return !(user.get('deleted') ||
+               user.get('isBot') ||
+               user.get('id') === 'USLACKBOT');
     });
   }),
 
