@@ -22,13 +22,13 @@ export default Ember.Object.extend({
         dataType: 'json',
         success: Ember.run.bind(null, resolve),
         failure: Ember.run.bind(null, reject)
-      }).then(data => {
-        let token = data.accessToken;
-
-        this.set('storage.token', token);
-
-        return { token };
       });
+    }).then(data => {
+      let token = data.accessToken;
+
+      this.set('storage.token', token);
+
+      return { token };
     });
   },
 
