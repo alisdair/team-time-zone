@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import LocalStorage from 'ttz/utils/local-storage';
 
 export default Ember.Service.extend({
   token: attr(),
@@ -9,33 +10,18 @@ export default Ember.Service.extend({
 function attr() {
   return Ember.computed({
     get(key) {
-      return loadSession()[key];
+      return new LocalStorage(STORAGE_ITEM).data[key];
     },
 
     set(key, value) {
-      let session = loadSession();
+      let session = new LocalStorage(STORAGE_ITEM);
 
-      session[key] = value;
-      storeSession(session);
+      session.data[key] = value;
+      session.store();
 
       return value;
     }
   });
 }
 
-const STORAGE_KEY = 'session';
-
-function loadSession() {
-  let data = window.localStorage.getItem(STORAGE_KEY);
-
-  try {
-    return JSON.parse(data) || {};
-  } catch (e) {
-    Ember.logger.error(`Invalid JSON session data: "${data}" (error: ${e})`);
-    return {};
-  }
-}
-
-function storeSession(session) {
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
-}
+const STORAGE_ITEM = 'session';
