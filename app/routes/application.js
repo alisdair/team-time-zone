@@ -6,8 +6,14 @@ export default Ember.Route.extend({
       this.transitionTo('login');
     },
 
-    error() {
-      this.transitionTo('catchall', 'application-error');
+    error(error) {
+      if (error.error === 'invalid_auth') {
+        this.get('session').close().then(() => {
+          this.transitionTo('about');
+        });
+      } else {
+        this.transitionTo('catchall', 'application-error');
+      }
     }
   }
 });
