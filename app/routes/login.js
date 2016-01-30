@@ -1,16 +1,18 @@
 import Ember from 'ember';
-import UnauthenticatedRouteMixin from 'simple-auth/mixins/unauthenticated-route-mixin';
 import users from 'ttz/data/sample-users';
 
-export default Ember.Route.extend(UnauthenticatedRouteMixin, {
+export default Ember.Route.extend({
   setupController(controller) {
     controller.set('sampleUsers', users);
   },
 
   actions: {
     login() {
-      let session = this.get('session');
-      session.authenticate('authenticator:slack-torii');
+      this.get('session').open('slack-oauth2').then(() => {
+        this.transitionTo('index');
+      }, error => {
+        this.controllerFor('login').set('error', error);
+      });
     }
   }
 });

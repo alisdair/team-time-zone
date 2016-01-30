@@ -1,12 +1,14 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from 'ttz/tests/helpers/start-app';
+import { stubValidSession } from 'ttz/tests/helpers/torii';
 
 let application;
 
 module('Acceptance | Index', {
   beforeEach() {
     application = startApp();
+    stubValidSession(application, { token: 'token' });
   },
 
   afterEach() {
@@ -16,8 +18,6 @@ module('Acceptance | Index', {
 
 test('with no users, shows message', function(assert) {
   assert.expect(3);
-
-  authenticateSession();
 
   visit('/');
 
@@ -33,8 +33,6 @@ test('with no users, shows message', function(assert) {
 
 test('shows a list of users grouped by timezone', function(assert) {
   assert.expect(4);
-
-  authenticateSession();
 
   let tzOffsets = [-25200, -25200, 3600, 7200, 7200];
   tzOffsets.map(tzo => server.create('user', { 'tz_offset': tzo }));
@@ -57,8 +55,6 @@ test('shows a list of users grouped by timezone', function(assert) {
 
 test('distant timezones have more space between them', function(assert) {
   assert.expect(4);
-
-  authenticateSession();
 
   server.create('user', { name: 'seattle', 'tz_offset': -25200 });
   server.create('user', { name: 'london', 'tz_offset': 3600 });
@@ -100,8 +96,6 @@ test('distant timezones have more space between them', function(assert) {
 
 test('can search for users by name', function(assert) {
   assert.expect(12);
-
-  authenticateSession();
 
   server.create('user', {
     'name': 'alexa',

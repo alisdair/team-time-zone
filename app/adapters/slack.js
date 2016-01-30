@@ -1,6 +1,7 @@
 import Environment from 'ttz/config/environment';
 import Ember from 'ember';
 import DS from 'ember-data';
+import appendUrlParams from 'ttz/utils/append-url-params';
 
 let get = Ember.get;
 
@@ -8,6 +9,8 @@ export default DS.Adapter.extend({
   host: Environment.APP.slackHost,
   namespace: Environment.APP.slackNamespace,
   defaultSerializer: 'slack',
+
+  session: Ember.inject.service(),
 
   find(store, type, id) {
     let url = this.buildURL(type.modelName, '.info');
@@ -42,7 +45,7 @@ export default DS.Adapter.extend({
       url = `/${url}`;
     }
 
-    return url;
+    return this._authorizeUrl(url);
   },
 
   prefixForType(modelName) {
@@ -52,7 +55,9 @@ export default DS.Adapter.extend({
   ajax(url, type, data) {
     return new Ember.RSVP.Promise(function(resolve, reject) {
       let hash = {
-        url, type, data,
+        url,
+        type,
+        data,
         dataType: 'json',
         context: this
       };
@@ -72,5 +77,15 @@ export default DS.Adapter.extend({
 
       Ember.$.ajax(hash);
     }, `DS: SlackAdapter#ajax ${type} to ${url}`);
+  },
+
+  _authorizeUrl(url) {
+    let token = this.get('session.token');
+
+    if (Ember.isEmpty(token)) {
+      return url;
+    }
+
+    return appendUrlParams(url, { token });
   }
 });

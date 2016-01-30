@@ -15,7 +15,7 @@
 
     {{#if session.isAuthenticated}}
       <li>
-        <button {{action 'invalidateSession'}}>Logout</button>
+        <button {{action 'logout'}}>Logout</button>
       </li>
     {{else}}
       <li>
