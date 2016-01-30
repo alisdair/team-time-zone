@@ -6,6 +6,7 @@ let Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.authenticatedRoute('index', { path: '/' });
   this.route('login');
   this.route('authorize');
   this.route('about');

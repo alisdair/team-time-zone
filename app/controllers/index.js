@@ -3,6 +3,8 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   queryParams: ['search'],
 
+  storage: Ember.inject.service(),
+
   search: '',
 
   users: Ember.computed('model.[]', function() {
@@ -13,7 +15,7 @@ export default Ember.Controller.extend({
     });
   }),
 
-  userFilter: Ember.computed.alias('session.userFilter'),
+  userFilter: Ember.computed.alias('storage.userFilter'),
 
   tooManyUsers: Ember.computed.gt('filteredUsers.length', 250),
 

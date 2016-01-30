@@ -1,14 +1,19 @@
 import Ember from 'ember';
-import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
-export default Ember.Route.extend(ApplicationRouteMixin, {
+export default Ember.Route.extend({
   actions: {
-    error() {
-      this.transitionTo('catchall', 'application-error');
+    accessDenied() {
+      this.transitionTo('login');
     },
 
-    invalidateSession() {
-      this.get('session').invalidate();
+    error(error) {
+      if (error.error === 'invalid_auth') {
+        this.get('session').close().then(() => {
+          this.transitionTo('about');
+        });
+      } else {
+        this.transitionTo('catchall', 'application-error');
+      }
     }
   }
 });

@@ -29,12 +29,8 @@ module.exports = function(environment) {
     'media-src': "'self'"
   };
 
-  ENV['simple-auth'] = {
-    authorizer: 'authorizer:slack',
-    crossOriginWhitelist: ['https://slack.com']
-  };
-
   ENV.torii = {
+    sessionServiceName: 'session',
     providers: {
       'slack-oauth2': {
         scope: 'identify,users:read',
@@ -46,8 +42,8 @@ module.exports = function(environment) {
   if (environment === 'development') {
     ENV.torii.providers['slack-oauth2'].apiKey = '2342810598.7294671267';
 
-    ENV.APP.slackHost = null;
-    ENV.APP.slackNamespace = 'slack';
+    // ENV.APP.slackHost = null;
+    // ENV.APP.slackNamespace = 'slack';
 
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -57,8 +53,6 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
-    ENV['simple-auth'].store = 'simple-auth-session-store:ephemeral';
-
     ENV.APP.slackHost = null;
     ENV.APP.slackNamespace = 'slack';
 

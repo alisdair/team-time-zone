@@ -3,6 +3,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['timezone-group'],
 
+  storage: Ember.inject.service(),
+
   users: [],
   timezoneOffset: 0,
 
@@ -10,7 +12,7 @@ export default Ember.Component.extend({
   sortedUsers: Ember.computed.sort('users', 'sort'),
 
   defaultTimeFormat: 'HH:mm',
-  timeFormat: Ember.computed.or('session.timeFormat', 'defaultTimeFormat'),
+  timeFormat: Ember.computed.or('storage.timeFormat', 'defaultTimeFormat'),
 
   updateLocalTime: function() {
     if (this.get('isDestroyed') || this.get('isDestroying')) {
@@ -42,9 +44,9 @@ export default Ember.Component.extend({
     toggleTimeFormat() {
       let timeFormat = this.get('timeFormat');
       if (timeFormat === 'HH:mm') {
-        this.set('session.timeFormat', 'h:mma');
+        this.set('storage.timeFormat', 'h:mma');
       } else {
-        this.set('session.timeFormat', 'HH:mm');
+        this.set('storage.timeFormat', 'HH:mm');
       }
     }
   }
