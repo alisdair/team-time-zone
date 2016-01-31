@@ -6,6 +6,7 @@ export default DS.RESTSerializer.extend({
 
   normalizeResponse(store, primaryModel, payload) {
     delete payload.ok;
+    delete payload.cache_ts; // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
 
     return this._super.apply(this, arguments);
   },

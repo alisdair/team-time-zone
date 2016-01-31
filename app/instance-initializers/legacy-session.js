@@ -21,7 +21,7 @@ function convertSession(data) {
 }
 
 export function initialize(instance) {
-  let storage = instance.container.lookup('service:storage');
+  let storage = instance.lookup('service:storage');
   let legacy = new LocalStorage('ember_simple_auth:session');
 
   storage.setProperties(convertSession(legacy.data));

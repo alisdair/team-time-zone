@@ -42,6 +42,10 @@ module.exports = function(environment) {
   if (environment === 'development') {
     ENV.torii.providers['slack-oauth2'].apiKey = '2342810598.7294671267';
 
+    ENV['ember-cli-mirage'] = {
+      enabled: false
+    };
+
     // ENV.APP.slackHost = null;
     // ENV.APP.slackNamespace = 'slack';
 

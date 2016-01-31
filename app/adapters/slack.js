@@ -3,7 +3,7 @@ import Ember from 'ember';
 import DS from 'ember-data';
 import appendUrlParams from 'ttz/utils/append-url-params';
 
-let get = Ember.get;
+let { get } = Ember;
 
 export default DS.Adapter.extend({
   host: Environment.APP.slackHost,
