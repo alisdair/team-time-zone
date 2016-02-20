@@ -1,18 +1,10 @@
-import Ember from 'ember';
-import { module, test } from 'qunit';
-import startApp from 'ttz/tests/helpers/start-app';
+import moduleForAcceptance from 'ttz/tests/helpers/module-for-acceptance';
+import { test } from 'qunit';
 import { stubValidSession } from 'ttz/tests/helpers/torii';
 
-let application;
-
-module('Acceptance | Index', {
+moduleForAcceptance('Acceptance | Index', {
   beforeEach() {
-    application = startApp();
-    stubValidSession(application, { token: 'token' });
-  },
-
-  afterEach() {
-    Ember.run(application, 'destroy');
+    stubValidSession(this.application, { token: 'token' });
   }
 });
 
