@@ -41,3 +41,10 @@ Development mode uses a [Mirage server](http://www.ember-cli-mirage.com/) to pro
 
 * `ember build` (development)
 * `ember build --environment production` (production)
+
+### Deployment
+
+Copy `.env.deploy.sample` to `.env.deploy.production` and set up your server configuration. Then use ember-cli-deploy:
+
+* `ember deploy --activate production`
+* `ember deploy:list production`
