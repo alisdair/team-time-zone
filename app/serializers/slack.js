@@ -8,7 +8,7 @@ export default RESTSerializer.extend({
     delete payload.ok;
     delete payload.cache_ts; // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
 
-    return this._super.apply(this, arguments);
+    return this._super(...arguments);
   },
 
   modelNameFromPayloadKey(key) {
@@ -16,7 +16,7 @@ export default RESTSerializer.extend({
       return 'user';
     }
 
-    return this._super.apply(this, arguments);
+    return this._super(...arguments);
   },
 
   keyForAttribute(attr) {
@@ -45,6 +45,6 @@ export default RESTSerializer.extend({
       this._normalizeUserProfile(hash);
     }
 
-    return this._super.apply(this, arguments);
+    return this._super(...arguments);
   }
 });
