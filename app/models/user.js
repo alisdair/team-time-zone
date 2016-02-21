@@ -1,24 +1,25 @@
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
 
-export default DS.Model.extend({
-  name: DS.attr('string'),
+export default Model.extend({
+  name: attr('string'),
 
-  deleted: DS.attr('boolean'),
-  isBot: DS.attr('boolean'),
-  isRestricted: DS.attr('boolean'),
-  isUltraRestricted: DS.attr('boolean'),
+  deleted: attr('boolean'),
+  isBot: attr('boolean'),
+  isRestricted: attr('boolean'),
+  isUltraRestricted: attr('boolean'),
 
-  firstName: DS.attr('string'),
-  lastName: DS.attr('string'),
-  realName: DS.attr('string'),
+  firstName: attr('string'),
+  lastName: attr('string'),
+  realName: attr('string'),
 
-  tz: DS.attr('string'),
-  tzLabel: DS.attr('string'),
-  tzOffset: DS.attr('number'),
+  tz: attr('string'),
+  tzLabel: attr('string'),
+  tzOffset: attr('number'),
 
-  image24: DS.attr('string'),
-  image32: DS.attr('string'),
-  image48: DS.attr('string'),
-  image72: DS.attr('string'),
-  image192: DS.attr('string')
+  image24: attr('string'),
+  image32: attr('string'),
+  image48: attr('string'),
+  image72: attr('string'),
+  image192: attr('string')
 });

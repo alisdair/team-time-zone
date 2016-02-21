@@ -1,11 +1,11 @@
 import Environment from 'ttz/config/environment';
 import Ember from 'ember';
-import DS from 'ember-data';
+import Adapter from 'ember-data/adapter';
 import appendUrlParams from 'ttz/utils/append-url-params';
 
 let { get } = Ember;
 
-export default DS.Adapter.extend({
+export default Adapter.extend({
   host: Environment.APP.slackHost,
   namespace: Environment.APP.slackNamespace,
   defaultSerializer: 'slack',

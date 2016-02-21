@@ -1,7 +1,7 @@
 import Ember from 'ember';
-import DS from 'ember-data';
+import RESTSerializer from 'ember-data/serializers/rest';
 
-export default DS.RESTSerializer.extend({
+export default RESTSerializer.extend({
   isNewSerializerAPI: true,
 
   normalizeResponse(store, primaryModel, payload) {
