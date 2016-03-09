@@ -1,4 +1,5 @@
 {
   "preset": "ember-suave",
+  "disallowParenthesesAroundArrowParam": true,
   "requireParenthesesAroundArrowParam": false
 }
