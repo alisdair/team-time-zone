@@ -1,14 +1,16 @@
 import Ember from 'ember';
 import LocalStorage from 'ttz/utils/local-storage';
 
-export default Ember.Service.extend({
+const { Service, computed } = Ember;
+
+export default Service.extend({
   token: attr(),
   timeFormat: attr(),
   userFilter: attr()
 });
 
 function attr() {
-  return Ember.computed({
+  return computed({
     get(key) {
       return new LocalStorage(STORAGE_ITEM).data[key];
     },

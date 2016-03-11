@@ -1,18 +1,20 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+const { Component, computed, isNone } = Ember;
+
+export default Component.extend({
   classNames: ['timezone-column'],
   classNameBindings: ['isEmpty:timezone-column--empty'],
 
   users: [],
-  isEmpty: Ember.computed.empty('users'),
+  isEmpty: computed.empty('users'),
 
-  groups: Ember.computed('users.@each.tzOffset', function() {
+  groups: computed('users.@each.tzOffset', function() {
     let groups = {};
     this.get('users').forEach(user => {
       let timezone = user.get('tzOffset');
 
-      if (Ember.isNone(groups[timezone])) {
+      if (isNone(groups[timezone])) {
         groups[timezone] = Ember.Object.create({
           timezoneOffset: timezone,
           users: Ember.A()

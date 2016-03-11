@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const { logger } = Ember;
+
 export default class LocalStorage {
   constructor(item) {
     this.item = item;
@@ -12,7 +14,7 @@ export default class LocalStorage {
     try {
       this.data = JSON.parse(data) || {};
     } catch (e) {
-      Ember.logger.error(`Invalid JSON session data: "${data}" (error: ${e})`);
+      logger.error(`Invalid JSON session data: "${data}" (error: ${e})`);
       this.data = {};
     }
   }

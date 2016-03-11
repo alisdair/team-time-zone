@@ -1,7 +1,9 @@
 import Ember from 'ember';
 import users from 'ttz/data/sample-users';
 
-export default Ember.Route.extend({
+const { Route } = Ember;
+
+export default Route.extend({
   setupController(controller) {
     controller.set('sampleUsers', users);
   },

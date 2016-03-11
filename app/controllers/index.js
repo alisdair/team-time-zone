@@ -1,13 +1,15 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+const { Controller, computed, inject, isBlank, isNone } = Ember;
+
+export default Controller.extend({
   queryParams: ['search'],
 
-  storage: Ember.inject.service(),
+  storage: inject.service(),
 
   search: '',
 
-  users: Ember.computed('model.[]', function() {
+  users: computed('model.[]', function() {
     return this.get('model').filter(user => {
       return !(user.get('deleted') ||
                user.get('isBot') ||
@@ -15,11 +17,11 @@ export default Ember.Controller.extend({
     });
   }),
 
-  userFilter: Ember.computed.alias('storage.userFilter'),
+  userFilter: computed.alias('storage.userFilter'),
 
-  tooManyUsers: Ember.computed.gt('filteredUsers.length', 250),
+  tooManyUsers: computed.gt('filteredUsers.length', 250),
 
-  filteredUsers: Ember.computed('search', 'userFilter', 'users.{name,realName}', function() {
+  filteredUsers: computed('search', 'userFilter', 'users.{name,realName}', function() {
     let users = this.get('users');
     let search = this.get('search').toLowerCase();
     let userType = this.get('userFilter');
@@ -34,7 +36,7 @@ export default Ember.Controller.extend({
       });
     }
 
-    if (Ember.isNone(users) || Ember.isBlank(search)) {
+    if (isNone(users) || isBlank(search)) {
       return users;
     }
 

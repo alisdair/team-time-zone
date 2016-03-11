@@ -3,14 +3,15 @@ import Ember from 'ember';
 import Adapter from 'ember-data/adapter';
 import appendUrlParams from 'ttz/utils/append-url-params';
 
-let { get } = Ember;
+let { RSVP, get, inject, run, isEmpty } = Ember;
+let { pluralize } = Ember.String;
 
 export default Adapter.extend({
   host: Environment.APP.slackHost,
   namespace: Environment.APP.slackNamespace,
   defaultSerializer: 'slack',
 
-  session: Ember.inject.service(),
+  session: inject.service(),
 
   find(store, type, id) {
     let url = this.buildURL(type.modelName, '.info');
@@ -49,11 +50,11 @@ export default Adapter.extend({
   },
 
   prefixForType(modelName) {
-    return Ember.String.pluralize(modelName);
+    return pluralize(modelName);
   },
 
   ajax(url, type, data) {
-    return new Ember.RSVP.Promise(function(resolve, reject) {
+    return new RSVP.Promise(function(resolve, reject) {
       let hash = {
         url,
         type,
@@ -64,15 +65,15 @@ export default Adapter.extend({
 
       hash.success = function(json) {
         if (json.ok === true) {
-          Ember.run(null, resolve, json);
+          run(null, resolve, json);
         } else {
-          Ember.run(null, reject, json);
+          run(null, reject, json);
         }
       };
 
       hash.error = function(jqXHR) {
         jqXHR.then = null; // jQuery promises are dumb
-        Ember.run(null, reject, jqXHR);
+        run(null, reject, jqXHR);
       };
 
       Ember.$.ajax(hash);
@@ -82,7 +83,7 @@ export default Adapter.extend({
   _authorizeUrl(url) {
     let token = this.get('session.token');
 
-    if (Ember.isEmpty(token)) {
+    if (isEmpty(token)) {
       return url;
     }
 

@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import { timezoneStart, timezoneNext } from 'ttz/utils/timezone';
 
+const { Component, computed } = Ember;
+
 function usersInTimezone(users, tz) {
   return users.filter(function(user) {
     let offset = user.get('tzOffset');
@@ -8,14 +10,14 @@ function usersInTimezone(users, tz) {
   });
 }
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ['timezone-container'],
 
   users: null,
 
-  offsets: Ember.computed.mapBy('users', 'tzOffset'),
+  offsets: computed.mapBy('users', 'tzOffset'),
 
-  earliest: Ember.computed('offsets.[]', function() {
+  earliest: computed('offsets.[]', function() {
     let min = Infinity;
     let offsets = this.get('offsets');
 
@@ -28,7 +30,7 @@ export default Ember.Component.extend({
     return min;
   }),
 
-  latest: Ember.computed('offsets.[]', function() {
+  latest: computed('offsets.[]', function() {
     let max = -Infinity;
     let offsets = this.get('offsets');
 
@@ -41,7 +43,7 @@ export default Ember.Component.extend({
     return max;
   }),
 
-  columns: Ember.computed('earliest', 'latest', function() {
+  columns: computed('earliest', 'latest', function() {
     let users = this.get('users');
     let start = timezoneStart(this.get('earliest'));
     let stop = timezoneNext(timezoneStart(this.get('latest')));

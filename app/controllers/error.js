@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
-  message: Ember.computed.or('model.message', 'model.statusText', 'model')
+const { Controller, computed } = Ember;
+
+export default Controller.extend({
+  message: computed.or('model.message', 'model.statusText', 'model')
 });

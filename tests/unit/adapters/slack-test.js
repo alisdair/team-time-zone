@@ -2,6 +2,8 @@ import Ember from 'ember';
 import { moduleFor, test } from 'ember-qunit';
 import Pretender from 'pretender';
 
+const { run } = Ember;
+
 moduleFor('adapter:slack', 'Unit | Adapter | slack');
 
 const JSON_HEADERS = { 'Content-Type': 'application/json' };
@@ -97,7 +99,7 @@ test('ajax with successful response', function(assert) {
     });
   });
 
-  Ember.run(function() {
+  run(function() {
     let result = adapter.ajax('/url', 'GET', { data: 'here' });
 
     result.then(function(response) {
@@ -121,7 +123,7 @@ test('ajax with successful response but { ok: false }', function(assert) {
     });
   });
 
-  Ember.run(function() {
+  run(function() {
     let result = adapter.ajax('/url', 'GET');
 
     result.then(function() {
@@ -145,7 +147,7 @@ test('ajax with error response', function(assert) {
     });
   });
 
-  Ember.run(function() {
+  run(function() {
     let result = adapter.ajax('/url', 'GET');
 
     result.then(function() {

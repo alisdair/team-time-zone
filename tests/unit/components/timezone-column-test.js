@@ -1,6 +1,8 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import Ember from 'ember';
 
+const { run } = Ember;
+
 moduleForComponent('timezone-column', 'Unit | Component | Timezone Column', {
   unit: true
 });
@@ -15,7 +17,7 @@ test('groups users by timezone offset', function(assert) {
   let manaus = Ember.Object.create({ name: 'Manaus', tzOffset: -10800 });
 
   let users = Ember.A([halifax, labrador, manaus]);
-  Ember.run(() => component.set('users', users));
+  run(() => component.set('users', users));
 
   let groups = component.get('groups');
   assert.equal(groups.length, 2,

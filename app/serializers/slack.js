@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import RESTSerializer from 'ember-data/serializers/rest';
 
+const { underscore } = Ember.String;
+
 export default RESTSerializer.extend({
   isNewSerializerAPI: true,
 
@@ -20,7 +22,7 @@ export default RESTSerializer.extend({
   },
 
   keyForAttribute(attr) {
-    return Ember.String.underscore(attr);
+    return underscore(attr);
   },
 
   _normalizeUserProfile(hash) {

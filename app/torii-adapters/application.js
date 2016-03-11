@@ -1,27 +1,29 @@
 import Ember from 'ember';
 
+const { RSVP, inject, isEmpty, run } = Ember;
+
 export default Ember.Object.extend({
-  storage: Ember.inject.service(),
+  storage: inject.service(),
 
   fetch() {
     let token = this.get('storage.token');
 
-    if (Ember.isEmpty(token)) {
+    if (isEmpty(token)) {
       throw new Error('No token in storage');
     }
 
-    return Ember.RSVP.resolve({ token });
+    return RSVP.resolve({ token });
   },
 
   open(authentication) {
-    return new Ember.RSVP.Promise((resolve, reject) => {
+    return new RSVP.Promise((resolve, reject) => {
       Ember.$.ajax({
         type: 'POST',
         url: '/api/tokens',
         data: authentication,
         dataType: 'json',
-        success: Ember.run.bind(null, resolve),
-        failure: Ember.run.bind(null, reject)
+        success: run.bind(null, resolve),
+        failure: run.bind(null, reject)
       });
     }).then(data => {
       let token = data.accessToken;
@@ -35,6 +37,6 @@ export default Ember.Object.extend({
   close() {
     this.set('storage.token', null);
 
-    return Ember.RSVP.resolve();
+    return RSVP.resolve();
   }
 });

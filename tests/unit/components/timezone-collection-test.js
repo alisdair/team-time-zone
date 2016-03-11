@@ -1,6 +1,8 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import Ember from 'ember';
 
+const { run } = Ember;
+
 moduleForComponent('timezone-collection', 'Unit | Component | Timezone Collection', {
   unit: true
 });
@@ -19,7 +21,7 @@ test('calculates earliest and latest timezone', function(assert) {
 
   let users = buildUsers(3600, -10800, 28800, 3600, 7200);
   let component = this.subject();
-  Ember.run(() => component.set('users', users));
+  run(() => component.set('users', users));
 
   assert.equal(component.get('earliest'), -10800,
                'calculates earliest timezone');
@@ -32,7 +34,7 @@ test('groups users into columns', function(assert) {
 
   let users = buildUsers(0, -12600, 3600, 0, -14400);
   let component = this.subject();
-  Ember.run(() => component.set('users', users));
+  run(() => component.set('users', users));
 
   let columns = component.get('columns');
 

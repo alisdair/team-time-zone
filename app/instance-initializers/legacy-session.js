@@ -1,11 +1,13 @@
 import Ember from 'ember';
 import LocalStorage from 'ttz/utils/local-storage';
 
+const { isNone } = Ember;
+
 function ignoreIfNone(data) {
   let result = {};
 
   for (let attr in data) {
-    if (!Ember.isNone(data[attr])) {
+    if (!isNone(data[attr])) {
       result[attr] = data[attr];
     }
   }
