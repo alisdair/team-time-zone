@@ -1,4 +1,5 @@
-// jscs:disable requireSpread // https://github.com/DockYard/ember-suave/issues/109
+// jscs:disable requireSpread
+// https://github.com/DockYard/ember-suave/issues/109
 import { module } from 'qunit';
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
