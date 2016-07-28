@@ -3,8 +3,8 @@ import Ember from 'ember';
 import Adapter from 'ember-data/adapter';
 import appendUrlParams from 'ttz/utils/append-url-params';
 
-let { RSVP, get, inject, run, isEmpty } = Ember;
-let { pluralize } = Ember.String;
+const { RSVP, get, inject, run, isEmpty } = Ember;
+const { pluralize } = Ember.String;
 
 export default Adapter.extend({
   host: Environment.APP.slackHost,
