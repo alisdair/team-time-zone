@@ -58,7 +58,7 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     ENV.APP.slackHost = null;
-    ENV.APP.slackNamespace = 'slack';
+    ENV.APP.slackNamespace = 'mirage/slack';
 
     // Testem prefers this...
     ENV.locationType = 'none';

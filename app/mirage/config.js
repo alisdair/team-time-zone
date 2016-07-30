@@ -3,6 +3,8 @@ import Ember from 'ember';
 const { isNone } = Ember;
 
 export default function() {
+  this.namespace = '/mirage';
+
   this.get('/slack/users.list', function(db) {
     return { ok: true, members: db.users };
   });

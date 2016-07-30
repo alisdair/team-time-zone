@@ -62,7 +62,10 @@ test('buildURL joins host, namespace, prefix, suffix', function(assert) {
 test('find with stubbed ajax method', function(assert) {
   assert.expect(3);
 
-  let adapter = this.subject();
+  let adapter = this.subject({
+    host: null,
+    namespace: '/slack'
+  });
   adapter.ajax = function(url, type, data) {
     assert.equal(url, '/slack/users.info');
     assert.equal(type, 'GET');
@@ -75,7 +78,10 @@ test('find with stubbed ajax method', function(assert) {
 test('findAll with stubbed ajax method', function(assert) {
   assert.expect(3);
 
-  let adapter = this.subject();
+  let adapter = this.subject({
+    host: null,
+    namespace: '/slack'
+  });
   adapter.ajax = function(url, type, data) {
     assert.equal(url, '/slack/users.list');
     assert.equal(type, 'GET');
