@@ -19,7 +19,7 @@ export default Controller.extend({
 
   userFilter: computed.alias('storage.userFilter'),
 
-  tooManyUsers: computed.gt('filteredUsers.length', 250),
+  tooManyUsers: computed.gt('filteredUsers.length', 500),
 
   filteredUsers: computed('search', 'userFilter', 'users.{name,realName}', function() {
     let users = this.get('users');
