@@ -30,7 +30,7 @@
     "ember-cli-deploy": "0.6.4",
     "ember-cli-deploy-build": "0.1.1",
     "ember-cli-deploy-display-revisions": "0.2.2",
-    "ember-cli-deploy-revision-data": "0.3.2",
+    "ember-cli-deploy-revision-data": "2.0.0",
     "ember-cli-deploy-rsync": "0.0.4",
     "ember-cli-deploy-ssh-index": "0.2.2",
     "ember-cli-favicon": "1.0.0-beta.4",
